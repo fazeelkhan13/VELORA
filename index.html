@@ -3,710 +3,3528 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VELORA — Step Into Your Best</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<title>VELORA — Premium Footwear</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* ===================== DESIGN TOKENS ===================== */
-:root{
-  --ink:#15140F;         /* near-black, warm */
-  --paper:#FAF7F1;       /* warm off-white */
-  --stone:#EFE7D8;       /* section background */
-  --umber:#6B5842;       /* muted warm accent (replaces generic gold) */
-  --umber-deep:#4A3C2C;
-  --line:#E2D8C4;
-  --muted:#847A6C;
-  --white:#ffffff;
-  --radius:2px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);overflow-x:hidden;font-weight:400}
-h1,h2,h3,h4,.display-font{font-family:'Fraunces',serif;letter-spacing:-0.01em}
-a{text-decoration:none;color:inherit}
-::selection{background:var(--umber);color:#fff}
-.container-xl{max-width:1320px}
-.eyebrow{font-family:'Inter',sans-serif;color:var(--umber);font-weight:600;font-size:.78rem;letter-spacing:.14em}
 
-/* ===== NAVBAR ===== */
-.navbar-velora{position:fixed;top:0;left:0;right:0;z-index:1000;padding:26px 0;transition:.4s cubic-bezier(.4,0,.2,1);background:transparent}
-.navbar-velora.scrolled{padding:14px 0;background:rgba(250,247,241,.82);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);box-shadow:0 1px 0 var(--line)}
-.brand-logo{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.7rem;letter-spacing:.01em;color:var(--ink)}
-.nav-links a{font-size:.88rem;font-weight:500;color:var(--ink);margin:0 17px;position:relative;padding:4px 0;opacity:.85}
-.nav-links a:hover{opacity:1}
-.nav-links a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--umber);transition:.3s}
-.nav-links a:hover::after,.nav-links a.active::after{width:100%}
-.icon-btn{background:none;border:none;font-size:1.12rem;color:var(--ink);position:relative;padding:6px 11px;transition:.25s}
-.icon-btn:hover{color:var(--umber);transform:translateY(-1px)}
-.badge-count{position:absolute;top:-1px;right:2px;background:var(--umber);color:#fff;font-size:.6rem;font-weight:700;border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center}
+html{
+    scroll-behavior:smooth;
+}
 
-/* ===== HERO ===== */
-.hero{min-height:100vh;padding-top:128px;background:linear-gradient(155deg,var(--paper) 0%,var(--stone) 100%);position:relative;overflow:hidden}
-.hero h1{font-size:clamp(2.7rem,6vw,5rem);font-weight:600;line-height:1.02;margin:18px 0 22px}
-.hero h1 em{font-style:italic;font-weight:500;color:var(--umber)}
-.hero p.lead{color:var(--muted);font-size:1.12rem;max-width:440px;margin-bottom:36px;line-height:1.6}
-.btn-velora{background:var(--ink);color:#fff;border:1px solid var(--ink);padding:15px 34px;border-radius:40px;font-weight:600;font-size:.85rem;letter-spacing:.02em;transition:.3s;display:inline-block}
-.btn-velora:hover{background:var(--umber);border-color:var(--umber);color:#fff}
-.btn-velora-outline{background:transparent;color:var(--ink);border:1px solid var(--ink);padding:15px 34px;border-radius:40px;font-weight:600;font-size:.85rem;letter-spacing:.02em;transition:.3s;display:inline-block}
-.btn-velora-outline:hover{background:var(--ink);color:#fff}
-.hero-img-wrap{position:relative;text-align:center;padding:20px}
-.hero-frame{position:absolute;inset:26px;border:1px solid var(--line);border-radius:12px;z-index:0}
-.hero-img-wrap img{position:relative;z-index:1;max-width:88%;border-radius:14px;box-shadow:0 50px 70px -25px rgba(21,20,15,.35);animation:floatShoe 6s ease-in-out infinite}
-@keyframes floatShoe{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
-.float-chip{position:absolute;background:#fff;padding:10px 18px;border-radius:50px;box-shadow:0 14px 34px rgba(21,20,15,.14);font-size:.76rem;font-weight:600;display:flex;align-items:center;gap:8px;z-index:2;animation:chipFloat 5s ease-in-out infinite}
-.float-chip i{color:var(--umber)}
-.chip1{top:4%;left:-2%;animation-delay:0s}
-.chip2{top:46%;right:-4%;animation-delay:1.2s}
-.chip3{bottom:2%;left:8%;animation-delay:2.4s}
-@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+body{
+    font-family:Inter,sans-serif;
+    background:#f7f5f0;
+    color:#171717;
+    overflow-x:hidden;
+}
 
-/* fade in on scroll */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.reveal.show{opacity:1;transform:translateY(0)}
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
 
-/* ===== SECTION TITLES ===== */
-.section-pad{padding:110px 0}
-.section-title{font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:600;margin-bottom:12px}
-.section-sub{color:var(--muted);margin-bottom:54px;max-width:460px}
-.section-sub.center{margin-inline:auto}
+button{
+    cursor:pointer;
+}
 
-/* ===== CATEGORY CARDS ===== */
-.cat-card{position:relative;border-radius:10px;overflow:hidden;height:400px;cursor:pointer;isolation:isolate;border:1px solid var(--line)}
-.cat-card img{width:100%;height:100%;object-fit:cover;transition:.7s cubic-bezier(.4,0,.2,1);filter:grayscale(.15)}
-.cat-card:hover img{transform:scale(1.07);filter:grayscale(0)}
-.cat-card::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(21,20,15,.8) 8%,rgba(21,20,15,0) 58%)}
-.cat-info{position:absolute;bottom:0;left:0;right:0;padding:28px;z-index:2;color:#fff}
-.cat-info h4{font-weight:500;margin-bottom:14px;font-size:1.4rem}
-.cat-explore{border:1px solid rgba(255,255,255,.65);color:#fff;padding:8px 20px;font-size:.76rem;font-weight:600;border-radius:40px;display:inline-block;transition:.3s}
-.cat-explore:hover{background:#fff;color:var(--ink)}
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-/* ===== PRODUCTS ===== */
-.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:48px}
-.filter-btn{border:1px solid var(--line);background:transparent;padding:9px 22px;border-radius:40px;font-size:.83rem;font-weight:500;transition:.25s;color:var(--ink)}
-.filter-btn.active,.filter-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-.product-card{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:.4s ease;position:relative}
-.product-card:hover{transform:translateY(-6px);box-shadow:0 28px 48px -18px rgba(21,20,15,.16);border-color:transparent}
-.product-img-box{position:relative;height:250px;background:var(--stone);overflow:hidden}
-.product-img-box img{width:100%;height:100%;object-fit:cover;transition:.6s cubic-bezier(.4,0,.2,1)}
-.product-card:hover .product-img-box img{transform:scale(1.08)}
-.wish-btn{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.92);width:36px;height:36px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.1);z-index:3;transition:.25s}
-.wish-btn i{color:var(--ink);transition:.2s}
-.wish-btn.active i{color:#a33b2e}
-.wish-btn.active i::before{content:"\f415"}
-.quick-view-btn{position:absolute;bottom:-50px;left:14px;right:14px;background:var(--ink);color:#fff;border:none;padding:11px;font-size:.78rem;font-weight:600;border-radius:6px;transition:.35s cubic-bezier(.4,0,.2,1);opacity:0;letter-spacing:.02em}
-.product-card:hover .quick-view-btn{bottom:14px;opacity:1}
-.product-body{padding:19px 19px 21px}
-.product-cat{color:var(--umber);font-size:.7rem;font-weight:600;letter-spacing:.08em}
-.product-name{font-family:'Fraunces',serif;font-weight:500;font-size:1.08rem;margin:6px 0 7px}
-.product-stars{color:#c9922f;font-size:.76rem;margin-bottom:9px}
-.product-price{font-weight:700;font-size:1.05rem;font-family:'Fraunces',serif}
-.add-cart-btn{width:100%;background:var(--ink);color:#fff;border:none;padding:11px;border-radius:40px;font-weight:600;font-size:.82rem;margin-top:13px;transition:.25s}
-.add-cart-btn:hover{background:var(--umber)}
-.add-cart-btn.added{background:#3d6b45}
+/* =========================
+   LOADER
+========================= */
 
-/* ===== PROMO BANNER ===== */
-.promo-banner{background:var(--ink);color:#fff;border-radius:14px;padding:80px 50px;position:relative;overflow:hidden;background-image:linear-gradient(120deg,rgba(21,20,15,.93),rgba(21,20,15,.78)),url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=90');background-size:cover;background-position:center}
-.promo-banner h2{font-size:clamp(2.1rem,4.2vw,3.4rem);font-weight:600}
+.loader{
+    position:fixed;
+    inset:0;
+    background:#111;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.7s;
+}
 
-/* ===== FEATURES ===== */
-.feature-card{text-align:center;padding:32px 18px}
-.feature-icon{width:76px;height:76px;border-radius:50%;background:var(--stone);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:1.7rem;color:var(--umber);transition:.35s}
-.feature-card:hover .feature-icon{background:var(--ink);color:#fff;transform:scale(1.06)}
-.feature-card h6{font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem;margin-bottom:8px}
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
 
-/* ===== NEW ARRIVALS ===== */
-.arrival-card{position:relative;border-radius:10px;overflow:hidden;background:var(--stone);border:1px solid var(--line)}
-.arrival-card img{width:100%;height:320px;object-fit:cover;transition:.6s cubic-bezier(.4,0,.2,1)}
-.arrival-card:hover img{transform:scale(1.06)}
-.arrival-text{padding:24px}
-.arrival-text h5{font-family:'Fraunces',serif;font-weight:500;font-size:1.25rem}
-.discover-link{font-weight:600;font-size:.83rem;border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+.loader-logo{
+    color:white;
+    font-family:"Playfair Display",serif;
+    font-size:42px;
+    letter-spacing:7px;
+    animation:pulse 1.2s infinite alternate;
+}
 
-/* ===== BRAND STORY ===== */
-.story-img{border-radius:10px;overflow:hidden;position:relative}
-.story-img img{width:100%;height:100%;object-fit:cover}
-.story-badge{position:absolute;bottom:24px;left:24px;background:#fff;padding:18px 24px;border-radius:8px;box-shadow:0 18px 40px rgba(21,20,15,.18)}
-.story-badge .num{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:600;color:var(--umber)}
+@keyframes pulse{
+    from{
+        opacity:.35;
+        transform:scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
 
-/* ===== NEWSLETTER ===== */
-.newsletter{background:var(--stone);border-radius:14px;padding:76px 40px;text-align:center;border:1px solid var(--line)}
-.newsletter input{border:1px solid var(--line);background:#fff;padding:15px 20px;border-radius:40px 0 0 40px;flex:1;font-size:.94rem}
-.newsletter input:focus{outline:none;box-shadow:none;border-color:var(--umber)}
-.newsletter button{border-radius:0 40px 40px 0;padding:15px 32px}
+/* =========================
+   NAVBAR
+========================= */
 
-/* ===== FOOTER ===== */
-footer{background:var(--ink);color:#c9c2b4;padding:84px 0 26px}
-footer h6{color:#fff;font-weight:600;margin-bottom:24px;font-size:.9rem;letter-spacing:.03em}
-footer a{color:#9c9484;font-size:.87rem;display:block;margin-bottom:13px;transition:.2s}
-footer a:hover{color:var(--stone)}
-.social-icon{width:38px;height:38px;border-radius:50%;border:1px solid #33301F;display:flex;align-items:center;justify-content:center;color:#fff;transition:.25s}
-.social-icon:hover{background:var(--umber);border-color:var(--umber)}
-.footer-bottom{border-top:1px solid #2c2a1c;padding-top:26px;margin-top:54px;font-size:.79rem;color:#736b5b}
+.navbar{
+    height:82px;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(0,0,0,.07);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
 
-/* ===== CART SIDEBAR ===== */
-.cart-overlay{position:fixed;inset:0;background:rgba(21,20,15,.5);z-index:2000;opacity:0;pointer-events:none;transition:.35s}
-.cart-overlay.show{opacity:1;pointer-events:auto}
-.cart-sidebar{position:fixed;top:0;right:-440px;width:420px;max-width:92vw;height:100%;background:#fff;z-index:2001;transition:.4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
-.cart-sidebar.show{right:0}
-.cart-head{padding:24px 26px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.cart-head h5{font-family:'Fraunces',serif;font-weight:500}
-.cart-body{flex:1;overflow-y:auto;padding:18px 26px}
-.cart-item{display:flex;gap:14px;padding:17px 0;border-bottom:1px solid var(--line)}
-.cart-item img{width:76px;height:76px;object-fit:cover;background:var(--stone);border-radius:8px}
-.qty-box{display:flex;align-items:center;border:1px solid var(--line);border-radius:20px;width:fit-content}
-.qty-box button{background:none;border:none;width:26px;height:26px;font-weight:700}
-.cart-foot{padding:24px 26px;border-top:1px solid var(--line)}
-.empty-cart{text-align:center;padding:60px 10px;color:var(--muted)}
+.logo{
+    font-family:"Playfair Display",serif;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:3px;
+    border:0;
+    background:none;
+}
 
-/* ===== SEARCH OVERLAY ===== */
-.search-overlay{position:fixed;inset:0;background:rgba(21,20,15,.97);z-index:2100;display:flex;align-items:flex-start;justify-content:center;opacity:0;pointer-events:none;transition:.35s}
-.search-overlay.show{opacity:1;pointer-events:auto}
-.search-overlay input{background:transparent;border:none;border-bottom:2px solid #4a4638;color:#fff;font-size:2rem;font-family:'Fraunces',serif;width:80%;max-width:700px;padding:14px 0;margin-top:14vh}
-.search-overlay input:focus{outline:none;border-color:var(--umber)}
-.search-overlay input::placeholder{color:#6b6656}
-.search-close{position:absolute;top:32px;right:42px;color:#fff;font-size:1.7rem;background:none;border:none}
-#searchResults{width:80%;max-width:700px;margin-top:22px;color:#ddd}
-#searchResults .sr-item{display:flex;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid #333;cursor:pointer}
-#searchResults .sr-item img{width:50px;height:50px;object-fit:cover;border-radius:6px}
+.logo span{
+    color:#b78955;
+}
 
-/* ===== QUICK VIEW MODAL ===== */
-.qv-img{background:var(--stone);border-radius:10px;height:340px;overflow:hidden}
-.qv-img img{width:100%;height:100%;object-fit:cover}
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:27px;
+}
 
-/* ===== TOAST ===== */
-.toast-custom{position:fixed;bottom:30px;right:30px;background:var(--ink);color:#fff;padding:16px 24px;border-radius:10px;z-index:3000;display:flex;align-items:center;gap:12px;transform:translateY(140%);opacity:0;transition:.4s cubic-bezier(.4,0,.2,1);box-shadow:0 18px 44px rgba(0,0,0,.28)}
-.toast-custom.show{transform:translateY(0);opacity:1}
-.toast-custom i{color:#6fbf7a;font-size:1.15rem}
+.nav-links button{
+    border:0;
+    background:none;
+    font-size:13px;
+    font-weight:600;
+    position:relative;
+    padding:8px 0;
+}
 
-@media(max-width:991px){
-  .nav-links{display:none}
-  .hero{padding-top:118px;text-align:center}
-  .hero-img-wrap{margin-top:54px}
-  .float-chip{display:none}
-  .section-pad{padding:64px 0}
-  .story-badge{display:none}
+.nav-links button::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:2px;
+    background:#b78955;
+    transition:.3s;
+}
+
+.nav-links button:hover::after{
+    width:100%;
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.nav-icon{
+    width:42px;
+    height:42px;
+    border:1px solid #e5e2dc;
+    background:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    position:relative;
+    transition:.3s;
+}
+
+.nav-icon:hover{
+    background:#171717;
+    color:#fff;
+    transform:translateY(-3px);
+}
+
+.badge{
+    position:absolute;
+    right:-3px;
+    top:-4px;
+    min-width:19px;
+    height:19px;
+    padding:0 5px;
+    border-radius:20px;
+    background:#b78955;
+    color:#fff;
+    font-size:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    font-size:25px;
+}
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+.page{
+    display:none;
+    animation:pageIn .5s ease;
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:700px;
+    display:flex;
+    align-items:center;
+    padding:80px 8%;
+    color:#fff;
+    background:
+        linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.22)),
+        url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1900&q=90");
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:50%;
+    right:-100px;
+    bottom:-180px;
+    animation:rotateCircle 18s linear infinite;
+}
+
+@keyframes rotateCircle{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.hero-content{
+    max-width:650px;
+    position:relative;
+    z-index:2;
+    animation:heroText 1s ease;
+}
+
+@keyframes heroText{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-label{
+    letter-spacing:5px;
+    font-size:12px;
+    font-weight:700;
+    color:#d6b184;
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(50px,7vw,90px);
+    line-height:.98;
+    margin:22px 0;
+}
+
+.hero p{
+    color:#ddd;
+    max-width:520px;
+    line-height:1.8;
+    font-size:15px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:32px;
+}
+
+.btn{
+    border:0;
+    padding:15px 26px;
+    font-weight:700;
+    transition:.35s;
+}
+
+.btn-dark{
+    background:#171717;
+    color:#fff;
+}
+
+.btn-light{
+    background:#fff;
+    color:#171717;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 25px rgba(0,0,0,.2);
+}
+
+.btn-dark:hover{
+    background:#b78955;
+}
+
+/* =========================
+   HOME CATEGORIES
+========================= */
+
+.section{
+    padding:90px 6%;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-heading span{
+    color:#b78955;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:4px;
+}
+
+.section-heading h2{
+    font-family:"Playfair Display",serif;
+    font-size:45px;
+    margin-top:8px;
+}
+
+.section-heading p{
+    color:#777;
+    max-width:550px;
+    margin:12px auto 0;
+    line-height:1.7;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+}
+
+.category-card{
+    height:270px;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.category-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.7s;
+}
+
+.category-card:hover img{
+    transform:scale(1.12);
+}
+
+.category-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        transparent 35%,
+        rgba(0,0,0,.8)
+    );
+}
+
+.category-info{
+    position:absolute;
+    left:22px;
+    bottom:22px;
+    z-index:2;
+    color:#fff;
+}
+
+.category-info small{
+    font-size:10px;
+    letter-spacing:3px;
+}
+
+.category-info h3{
+    font-family:"Playfair Display",serif;
+    font-size:25px;
+    margin-top:5px;
+}
+
+/* =========================
+   CATEGORY PAGE
+========================= */
+
+.category-hero{
+    min-height:400px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#fff;
+    background:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
+        url("https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1800&q=90");
+    background-size:cover;
+    background-position:center;
+    transition:background-image .4s ease;
+}
+
+.category-hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:65px;
+}
+
+.category-hero p{
+    color:#ddd;
+    margin-top:10px;
+}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+}
+
+.product-card{
+    background:#fff;
+    position:relative;
+    overflow:hidden;
+    border:1px solid #ebe8e2;
+    transition:.45s;
+    animation:cardIn .6s ease both;
+}
+
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.product-card:hover{
+    transform:translateY(-9px);
+    box-shadow:0 22px 45px rgba(0,0,0,.1);
+}
+
+.product-img{
+    height:310px;
+    background:#eee;
+    position:relative;
+    overflow:hidden;
+}
+
+.product-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.7s;
+}
+
+.product-card:hover .product-img img{
+    transform:scale(1.08);
+}
+
+.product-tag{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#171717;
+    color:#fff;
+    padding:6px 10px;
+    font-size:9px;
+    letter-spacing:1px;
+    z-index:3;
+}
+
+.wishlist-btn{
+    position:absolute;
+    right:15px;
+    top:15px;
+    width:40px;
+    height:40px;
+    border:0;
+    border-radius:50%;
+    background:rgba(255,255,255,.95);
+    font-size:20px;
+    z-index:3;
+    transition:.3s;
+}
+
+.wishlist-btn:hover{
+    transform:scale(1.1);
+}
+
+.wishlist-btn.active{
+    background:#171717;
+    color:#fff;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-category{
+    color:#a07b51;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.product-info h3{
+    font-size:17px;
+    margin:7px 0;
+}
+
+.rating{
+    font-size:12px;
+    color:#b78955;
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:18px;
+    font-weight:700;
+}
+
+.product-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-top:16px;
+}
+
+.product-buttons button{
+    padding:11px 5px;
+    border:1px solid #222;
+    background:#fff;
+    font-size:11px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.product-buttons button:last-child{
+    background:#171717;
+    color:#fff;
+}
+
+.product-buttons button:hover{
+    background:#b78955;
+    color:#fff;
+    border-color:#b78955;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-wrapper{
+    max-width:1100px;
+    margin:auto;
+}
+
+.about-box{
+    background:
+        radial-gradient(circle at 10% 20%,rgba(183,137,85,.16),transparent 28%),
+        radial-gradient(circle at 90% 80%,rgba(183,137,85,.12),transparent 28%),
+        #171717;
+    color:#fff;
+    padding:75px 8%;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 25px 70px rgba(0,0,0,.15);
+}
+
+.about-box::before,
+.about-box::after{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:50%;
+}
+
+.about-box::before{
+    left:-120px;
+    top:-120px;
+}
+
+.about-box::after{
+    right:-120px;
+    bottom:-120px;
+}
+
+.about-box span{
+    color:#d0a879;
+    font-size:11px;
+    letter-spacing:5px;
+    font-weight:700;
+}
+
+.about-box h1{
+    font-family:"Playfair Display",serif;
+    font-size:58px;
+    margin:15px 0 20px;
+    position:relative;
+    z-index:2;
+}
+
+.about-box > p{
+    color:#ccc;
+    line-height:1.9;
+    max-width:720px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.about-points{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin:42px 0;
+    position:relative;
+    z-index:2;
+}
+
+.about-point{
+    border:1px solid rgba(255,255,255,.13);
+    background:rgba(255,255,255,.04);
+    padding:25px 18px;
+    transition:.3s;
+}
+
+.about-point:hover{
+    transform:translateY(-6px);
+    background:rgba(183,137,85,.12);
+    border-color:rgba(208,168,121,.4);
+}
+
+.about-point-icon{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#b78955;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 15px;
+    font-size:20px;
+}
+
+.about-point h3{
+    font-family:"Playfair Display",serif;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.about-point p{
+    color:#aaa;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.about-box .btn{
+    position:relative;
+    z-index:2;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.contact-card{
+    background:#fff;
+    padding:40px;
+    border:1px solid #e9e5df;
+    box-shadow:0 15px 45px rgba(0,0,0,.05);
+}
+
+.contact-card h2{
+    font-family:"Playfair Display",serif;
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.contact-card-intro{
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.order-form input,
+.order-form select{
+    width:100%;
+    border:1px solid #ddd;
+    background:#fafafa;
+    padding:15px;
+    outline:none;
+    transition:.3s;
+    color:#333;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus,
+.order-form input:focus,
+.order-form select:focus{
+    border-color:#b78955;
+    background:#fff;
+    box-shadow:0 0 0 3px rgba(183,137,85,.1);
+}
+
+.contact-form select{
+    appearance:auto;
+    cursor:pointer;
+}
+
+.contact-form textarea{
+    height:145px;
+    resize:none;
+}
+
+.contact-submit{
+    border:0;
+    padding:16px;
+    background:#171717;
+    color:#fff;
+    font-weight:700;
+    transition:.3s;
+}
+
+.contact-submit:hover{
+    background:#b78955;
+    transform:translateY(-2px);
+}
+
+.contact-info-row{
+    display:flex;
+    gap:12px;
+    margin-top:25px;
+    padding-top:20px;
+    border-top:1px solid #eee;
+}
+
+.contact-info-box{
+    flex:1;
+    text-align:center;
+    padding:12px;
+    background:#f8f6f1;
+}
+
+.contact-info-box strong{
+    display:block;
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+.contact-info-box span{
+    color:#777;
+    font-size:11px;
+}
+
+.map{
+    width:100%;
+    height:100%;
+    min-height:400px;
+    border:0;
+    box-shadow:0 15px 45px rgba(0,0,0,.08);
+}
+
+/* =========================
+   ORDER
+========================= */
+
+.order-container{
+    max-width:850px;
+    margin:auto;
+}
+
+.order-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.order-title span{
+    color:#b78955;
+    letter-spacing:4px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.order-title h1{
+    font-family:"Playfair Display",serif;
+    font-size:52px;
+    margin-top:8px;
+}
+
+.order-card{
+    background:#fff;
+    padding:40px;
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
+    border:1px solid #ebe7e0;
+}
+
+.order-product-preview{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:15px;
+    background:#f6f3ee;
+    margin-bottom:25px;
+}
+
+.order-product-preview img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+}
+
+.order-product-preview h3{
+    margin-bottom:6px;
+}
+
+.order-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.order-group{
+    margin-bottom:4px;
+}
+
+.order-group.full{
+    grid-column:1/-1;
+}
+
+.order-group label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:7px;
+}
+
+.order-submit{
+    width:100%;
+    border:0;
+    background:#171717;
+    color:#fff;
+    padding:17px;
+    margin-top:20px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.order-submit:hover{
+    background:#b78955;
+}
+
+/* =========================
+   CART DRAWER
+========================= */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    backdrop-filter:blur(4px);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:1999;
+}
+
+.overlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.drawer{
+    position:fixed;
+    top:0;
+    right:-450px;
+    width:430px;
+    max-width:100%;
+    height:100vh;
+    background:#fff;
+    z-index:2000;
+    transition:.45s cubic-bezier(.77,0,.18,1);
+    display:flex;
+    flex-direction:column;
+    box-shadow:-20px 0 60px rgba(0,0,0,.15);
+}
+
+.drawer.open{
+    right:0;
+}
+
+.drawer-head{
+    padding:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #eee;
+}
+
+.drawer-head h2{
+    font-family:"Playfair Display",serif;
+    font-size:27px;
+}
+
+.close-btn{
+    border:0;
+    background:none;
+    font-size:26px;
+}
+
+.drawer-content{
+    flex:1;
+    overflow:auto;
+    padding:20px;
+}
+
+.empty{
+    text-align:center;
+    color:#888;
+    margin-top:80px;
+}
+
+.cart-item{
+    display:flex;
+    gap:13px;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+    position:relative;
+}
+
+.cart-item img{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+}
+
+.cart-item-info{
+    padding-right:35px;
+    flex:1;
+}
+
+.cart-item-info h4{
+    font-size:14px;
+    margin-bottom:7px;
+}
+
+.cart-price{
+    font-weight:700;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:10px;
+}
+
+.qty button{
+    width:25px;
+    height:25px;
+    border:1px solid #ddd;
+    background:#fff;
+}
+
+.delete-btn{
+    position:absolute;
+    right:3px;
+    top:18px;
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:#f6eeee;
+    color:#a64242;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.3s;
+}
+
+.delete-btn:hover{
+    background:#a64242;
+    color:#fff;
+    transform:scale(1.08);
+}
+
+.drawer-bottom{
+    padding:22px;
+    border-top:1px solid #eee;
+}
+
+.total-row{
+    display:flex;
+    justify-content:space-between;
+    font-size:18px;
+    font-weight:700;
+}
+
+.checkout-btn{
+    width:100%;
+    border:0;
+    padding:16px;
+    background:#171717;
+    color:#fff;
+    font-weight:700;
+    margin-top:15px;
+    transition:.3s;
+}
+
+.checkout-btn:hover{
+    background:#b78955;
+}
+
+/* =========================
+   WISHLIST
+========================= */
+
+.wishlist-item{
+    display:flex;
+    gap:13px;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.wishlist-item img{
+    width:75px;
+    height:75px;
+    object-fit:cover;
+}
+
+.wishlist-item-info{
+    flex:1;
+}
+
+.wishlist-item-info h4{
+    font-size:14px;
+}
+
+.wishlist-item-info p{
+    font-weight:700;
+    margin-top:5px;
+}
+
+.wish-cart{
+    border:0;
+    background:#171717;
+    color:#fff;
+    padding:8px 10px;
+    font-size:10px;
+}
+
+/* =========================
+   SUCCESS POPUP
+========================= */
+
+.success-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:5000;
+    padding:20px;
+}
+
+.success-overlay.show{
+    display:flex;
+}
+
+.success-popup{
+    width:480px;
+    max-width:100%;
+    background:#fff;
+    padding:45px 35px;
+    text-align:center;
+    animation:successPop .45s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes successPop{
+    from{
+        opacity:0;
+        transform:scale(.75) translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+.success-icon{
+    width:78px;
+    height:78px;
+    margin:auto;
+    border-radius:50%;
+    background:#171717;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    animation:successIcon .6s ease .2s both;
+}
+
+@keyframes successIcon{
+    from{
+        transform:scale(0);
+    }
+    to{
+        transform:scale(1);
+    }
+}
+
+.success-popup h2{
+    font-family:"Playfair Display",serif;
+    font-size:34px;
+    margin:20px 0 10px;
+}
+
+.success-popup p{
+    color:#666;
+    line-height:1.7;
+}
+
+.success-popup button{
+    border:0;
+    padding:14px 25px;
+    background:#171717;
+    color:#fff;
+    margin-top:22px;
+    font-weight:700;
+}
+
+/* =========================
+   CONTACT SUCCESS POPUP
+========================= */
+
+.contact-success-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:7000;
+    padding:20px;
+}
+
+.contact-success-overlay.show{
+    display:flex;
+}
+
+.contact-success-popup{
+    width:500px;
+    max-width:100%;
+    background:#fff;
+    padding:48px 35px;
+    text-align:center;
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
+    animation:contactSuccessPop .4s ease;
+}
+
+@keyframes contactSuccessPop{
+    from{
+        opacity:0;
+        transform:scale(.85) translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+.contact-success-icon{
+    width:78px;
+    height:78px;
+    margin:auto;
+    background:#171717;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:35px;
+}
+
+.contact-success-popup h2{
+    font-family:"Playfair Display",serif;
+    font-size:32px;
+    margin:20px 0 12px;
+}
+
+.contact-success-popup p{
+    color:#666;
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    background:#171717;
+    color:#fff;
+    padding:15px 20px;
+    z-index:6000;
+    transform:translateY(100px);
+    opacity:0;
+    transition:.35s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#111;
+    color:#fff;
+    padding:35px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+footer strong{
+    font-family:"Playfair Display",serif;
+    font-size:22px;
+    letter-spacing:2px;
+}
+
+footer p{
+    color:#999;
+    font-size:12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+
+    .category-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .nav-links{
+        gap:16px;
+    }
+}
+
+@media(max-width:800px){
+
+    .navbar{
+        padding:0 5%;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:82px;
+        left:0;
+        right:0;
+        background:#fff;
+        padding:22px;
+        flex-direction:column;
+        display:none;
+        box-shadow:0 15px 30px rgba(0,0,0,.08);
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .category-grid,
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .order-grid{
+        grid-template-columns:1fr;
+    }
+
+    .order-group.full{
+        grid-column:auto;
+    }
+
+    .category-hero h1{
+        font-size:48px;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .about-points{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    .logo{
+        font-size:24px;
+    }
+
+    .nav-actions{
+        gap:6px;
+    }
+
+    .nav-icon{
+        width:37px;
+        height:37px;
+    }
+
+    .hero{
+        padding:55px 7%;
+    }
+
+    .hero h1{
+        font-size:47px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .section{
+        padding:65px 5%;
+    }
+
+    .section-heading h2{
+        font-size:35px;
+    }
+
+    .category-grid,
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-img{
+        height:320px;
+    }
+
+    .category-card{
+        height:300px;
+    }
+
+    .drawer{
+        width:100%;
+    }
+
+    .order-card{
+        padding:22px;
+    }
+
+    .order-title h1{
+        font-size:40px;
+    }
+
+    .about-box{
+        padding:55px 7%;
+    }
+
+    .about-box h1{
+        font-size:42px;
+    }
+
+    .contact-card{
+        padding:25px;
+    }
+
+    footer{
+        flex-direction:column;
+        text-align:center;
+    }
 }
 </style>
 </head>
+
 <body>
 
-<!-- ============ NAVBAR ============ -->
-<nav class="navbar-velora" id="mainNav">
-  <div class="container-xl d-flex align-items-center justify-content-between">
-    <a href="#home" class="brand-logo">Velora</a>
+<!-- LOADER -->
+<div class="loader" id="loader">
+    <div class="loader-logo">VELORA</div>
+</div>
 
-    <div class="nav-links d-none d-lg-flex">
-      <a href="#home" class="active">Home</a>
-      <a href="#" onclick="filterAndScroll('Men')">Men</a>
-      <a href="#" onclick="filterAndScroll('Women')">Women</a>
-      <a href="#arrivals">New Arrivals</a>
-      <a href="#categories">Collections</a>
-      <a href="#story">About</a>
-      <a href="#footer">Contact</a>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <button class="logo" onclick="showHome()">
+        VELO<span>RA</span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+
+        <button onclick="showHome()">Home</button>
+
+        <button onclick="showCategory('shoes')">
+            Shoes
+        </button>
+
+        <button onclick="showCategory('men')">
+            Men
+        </button>
+
+        <button onclick="showCategory('women')">
+            Women
+        </button>
+
+        <button onclick="showCategory('sandals')">
+            Sandals
+        </button>
+
+        <button onclick="showCategory('slippers')">
+            Slippers
+        </button>
+
+        <button onclick="showAbout()">
+            About
+        </button>
+
+        <button onclick="showContact()">
+            Contact
+        </button>
+
+    </nav>
+
+    <div class="nav-actions">
+
+        <button class="nav-icon" onclick="openWishlist()">
+            ♡
+            <span class="badge" id="wishCount">0</span>
+        </button>
+
+        <button class="nav-icon" onclick="openCart()">
+            🛒
+            <span class="badge" id="cartCount">0</span>
+        </button>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
     </div>
 
-    <div class="d-flex align-items-center gap-1">
-      <button class="icon-btn" onclick="openSearch()" aria-label="Search"><i class="bi bi-search"></i></button>
-      <button class="icon-btn" onclick="toggleWishPanel()" aria-label="Wishlist">
-        <i class="bi bi-heart"></i><span class="badge-count" id="wishCount">0</span>
-      </button>
-      <button class="icon-btn" onclick="openCart()" aria-label="Cart">
-        <i class="bi bi-bag"></i><span class="badge-count" id="cartCount">0</span>
-      </button>
-      <button class="icon-btn d-lg-none" onclick="toggleMobileMenu()" aria-label="Menu"><i class="bi bi-list" style="font-size:1.6rem"></i></button>
-    </div>
-  </div>
+</header>
 
-  <!-- mobile menu -->
-  <div id="mobileMenu" class="d-lg-none" style="display:none;background:#fff;border-top:1px solid var(--line);margin-top:18px">
-    <div class="d-flex flex-column p-4 gap-3">
-      <a href="#home">Home</a>
-      <a href="#" onclick="filterAndScroll('Men')">Men</a>
-      <a href="#" onclick="filterAndScroll('Women')">Women</a>
-      <a href="#arrivals">New Arrivals</a>
-      <a href="#categories">Collections</a>
-      <a href="#story">About</a>
-      <a href="#footer">Contact</a>
-    </div>
-  </div>
-</nav>
 
-<!-- ============ HERO ============ -->
-<section class="hero" id="home">
-  <div class="container-xl">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <div class="eyebrow">VELORA FOOTWEAR</div>
-        <h1>Step Into<br><em>Your Best</em></h1>
-        <p class="lead">Premium footwear designed for every move, every moment.</p>
-        <div class="d-flex gap-3 flex-wrap">
-          <a href="#products" class="btn-velora">Shop Collection</a>
-          <a href="#arrivals" class="btn-velora-outline">Explore New Arrivals</a>
+<!-- =========================
+     HOME
+========================= -->
+
+<main id="homePage" class="page active">
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            PREMIUM FOOTWEAR COLLECTION
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="hero-img-wrap">
-          <div class="hero-frame"></div>
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=90" alt="Velora premium shoe">
-          <div class="float-chip chip1"><i class="bi bi-stars"></i> New Season</div>
-          <div class="float-chip chip2"><i class="bi bi-cloud"></i> Premium Comfort</div>
-          <div class="float-chip chip3"><i class="bi bi-truck"></i> Free Shipping</div>
+
+        <h1>
+            Walk Different.
+        </h1>
+
+        <p>
+            Discover refined footwear made for modern lifestyles.
+            From everyday sneakers to effortless sandals,
+            find your perfect step with VELORA.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="btn btn-light"
+                    onclick="showCategory('shoes')">
+                SHOP SHOES
+            </button>
+
+            <button class="btn btn-dark"
+                    onclick="showCategory('women')">
+                EXPLORE WOMEN
+            </button>
+
         </div>
-      </div>
+
     </div>
-  </div>
+
 </section>
 
-<!-- ============ CATEGORY SECTION ============ -->
-<section class="section-pad" id="categories">
-  <div class="container-xl">
-    <div class="text-center reveal">
-      <div class="eyebrow">COLLECTIONS</div>
-      <h2 class="section-title">Find Your Perfect Pair</h2>
-      <p class="section-sub center">Curated collections built for how you move.</p>
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span>EXPLORE COLLECTIONS</span>
+
+        <h2>Choose Your Style</h2>
+
+        <p>
+            Explore our curated footwear collections and
+            discover a pair made for your everyday style.
+        </p>
+
     </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="cat-card" onclick="filterAndScroll('Running')">
-          <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=90" alt="Running shoes">
-          <div class="cat-info"><h4>Running</h4><span class="cat-explore">Explore</span></div>
+
+
+    <div class="category-grid">
+
+        <div class="category-card"
+             onclick="showCategory('shoes')">
+
+            <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=90">
+
+            <div class="category-info">
+                <small>EVERYDAY</small>
+                <h3>Shoes</h3>
+            </div>
+
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="cat-card" onclick="filterAndScroll('Sneakers')">
-          <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&q=90" alt="Sneakers">
-          <div class="cat-info"><h4>Sneakers</h4><span class="cat-explore">Explore</span></div>
+
+
+        <div class="category-card"
+             onclick="showCategory('men')">
+
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=90">
+
+            <div class="category-info">
+                <small>MODERN</small>
+                <h3>Men</h3>
+            </div>
+
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="cat-card" onclick="filterAndScroll('Casual')">
-          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=90" alt="Casual shoes">
-          <div class="cat-info"><h4>Casual</h4><span class="cat-explore">Explore</span></div>
+
+
+        <div class="category-card"
+             onclick="showCategory('women')">
+
+            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=90">
+
+            <div class="category-info">
+                <small>ELEGANT</small>
+                <h3>Women</h3>
+            </div>
+
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3 reveal">
-        <div class="cat-card" onclick="filterAndScroll('Sports')">
-          <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=800&q=90" alt="Sports shoes">
-          <div class="cat-info"><h4>Sports</h4><span class="cat-explore">Explore</span></div>
+
+
+        <div class="category-card"
+             onclick="showCategory('sandals')">
+
+            <img src="https://images.unsplash.com/photo-1562273138-f46be4ebdf33?auto=format&fit=crop&w=900&q=90">
+
+            <div class="category-info">
+                <small>SUMMER</small>
+                <h3>Sandals</h3>
+            </div>
+
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ FEATURED PRODUCTS ============ -->
-<section class="section-pad" style="background:var(--stone)" id="products">
-  <div class="container-xl">
-    <div class="text-center reveal">
-      <div class="eyebrow">SHOP THE EDIT</div>
-      <h2 class="section-title">Trending This Season</h2>
-      <p class="section-sub center">Hand-picked styles our community loves right now.</p>
-    </div>
-    <div class="filter-bar justify-content-center" id="filterBar">
-      <button class="filter-btn active" data-f="All">All</button>
-      <button class="filter-btn" data-f="Running">Running</button>
-      <button class="filter-btn" data-f="Sneakers">Sneakers</button>
-      <button class="filter-btn" data-f="Casual">Casual</button>
-      <button class="filter-btn" data-f="Sports">Sports</button>
-    </div>
-    <div class="row g-4" id="productGrid"></div>
-  </div>
-</section>
 
-<!-- ============ PROMO BANNER ============ -->
-<section class="section-pad">
-  <div class="container-xl">
-    <div class="promo-banner text-center reveal">
-      <p class="eyebrow" style="color:#D9CBB4">LIMITED TIME</p>
-      <h2 class="mb-3">Move More. Live More.</h2>
-      <p class="mb-4" style="color:#d8d3ca;max-width:520px;margin-inline:auto">Engineered for comfort. Designed for your lifestyle.</p>
-      <a href="#products" class="btn-velora" style="background:#fff;color:var(--ink);border-color:#fff">Shop Now</a>
-    </div>
-  </div>
-</section>
+        <div class="category-card"
+             onclick="showCategory('slippers')">
 
-<!-- ============ WHY VELORA ============ -->
-<section class="section-pad">
-  <div class="container-xl">
-    <div class="text-center reveal">
-      <div class="eyebrow">WHY VELORA</div>
-      <h2 class="section-title">Built On The Details</h2>
-      <p class="section-sub center">The details that set every pair apart.</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-3 col-6 reveal"><div class="feature-card"><div class="feature-icon"><i class="bi bi-gem"></i></div><h6>Premium Materials</h6><p class="text-muted small mb-0">Crafted from top-grade, sustainably sourced components.</p></div></div>
-      <div class="col-md-3 col-6 reveal"><div class="feature-card"><div class="feature-icon"><i class="bi bi-cloud-fill"></i></div><h6>All-Day Comfort</h6><p class="text-muted small mb-0">Cushioned support engineered for long days on your feet.</p></div></div>
-      <div class="col-md-3 col-6 reveal"><div class="feature-card"><div class="feature-icon"><i class="bi bi-truck"></i></div><h6>Fast & Free Shipping</h6><p class="text-muted small mb-0">Free delivery on every order, no minimum required.</p></div></div>
-      <div class="col-md-3 col-6 reveal"><div class="feature-card"><div class="feature-icon"><i class="bi bi-arrow-repeat"></i></div><h6>Easy Returns</h6><p class="text-muted small mb-0">30-day hassle-free returns, no questions asked.</p></div></div>
-    </div>
-  </div>
-</section>
+            <img src="https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&w=900&q=90">
 
-<!-- ============ NEW ARRIVALS ============ -->
-<section class="section-pad" style="background:var(--stone)" id="arrivals">
-  <div class="container-xl">
-    <div class="text-center reveal">
-      <div class="eyebrow">JUST LANDED</div>
-      <h2 class="section-title">New Arrivals</h2>
-      <p class="section-sub center">Fresh off the line, straight into your rotation.</p>
-    </div>
-    <div class="row g-4" id="arrivalGrid"></div>
-  </div>
-</section>
+            <div class="category-info">
+                <small>COMFORT</small>
+                <h3>Slippers</h3>
+            </div>
 
-<!-- ============ BRAND STORY ============ -->
-<section class="section-pad" id="story">
-  <div class="container-xl">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-6 reveal">
-        <div class="story-img" style="height:460px">
-          <img src="https://images.unsplash.com/photo-1554133059-5e8b7f5b3a4d?auto=format&fit=crop&w=1000&q=90" alt="Velora brand story">
-          <div class="story-badge"><div class="num">12+</div><div class="small text-muted">Years of craft</div></div>
         </div>
-      </div>
-      <div class="col-lg-6 reveal">
-        <div class="eyebrow">OUR STORY</div>
-        <h2 class="section-title">Made To Move With You</h2>
-        <p class="text-muted" style="font-size:1.05rem;max-width:480px;line-height:1.7">From morning runs to late-night city walks, Velora creates footwear that combines modern design, lasting comfort and everyday performance.</p>
-        <a href="#story" class="discover-link">Learn Our Story</a>
-      </div>
+
     </div>
-  </div>
+
 </section>
 
-<!-- ============ NEWSLETTER ============ -->
-<section class="section-pad">
-  <div class="container-xl">
-    <div class="newsletter reveal">
-      <div class="eyebrow">JOIN THE LIST</div>
-      <h2 class="section-title">Get 10% Off Your First Pair</h2>
-      <p class="section-sub center mb-4">Join the Velora community and receive new arrivals, exclusive offers and style updates.</p>
-      <form class="d-flex justify-content-center" style="max-width:460px;margin:0 auto" onsubmit="return subscribeNewsletter(event)">
-        <input type="email" id="newsEmail" placeholder="Enter your email" required>
-        <button type="submit" class="btn-velora">Subscribe</button>
-      </form>
-    </div>
-  </div>
-</section>
+</main>
 
-<!-- ============ FOOTER ============ -->
-<footer id="footer">
-  <div class="container-xl">
-    <div class="row g-4">
-      <div class="col-lg-4">
-        <div class="brand-logo" style="color:#fff">Velora</div>
-        <p class="mt-3" style="max-width:280px;font-size:.88rem">Premium footwear designed for every move, every moment. Crafted for comfort, built to last.</p>
-        <div class="d-flex gap-2 mt-3">
-          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+
+<!-- =========================
+     CATEGORY PAGE
+========================= -->
+
+<section id="categoryPage" class="page">
+
+    <div class="category-hero" id="categoryHero">
+
+        <div>
+
+            <p id="categorySmall">
+                VELORA COLLECTION
+            </p>
+
+            <h1 id="categoryTitle">
+                Shoes
+            </h1>
+
+            <p id="categoryDescription">
+                Discover our collection.
+            </p>
+
         </div>
-      </div>
-      <div class="col-lg-2 col-6">
-        <h6>Shop</h6>
-        <a href="#" onclick="filterAndScroll('Running')">Running</a>
-        <a href="#" onclick="filterAndScroll('Sneakers')">Sneakers</a>
-        <a href="#" onclick="filterAndScroll('Casual')">Casual</a>
-        <a href="#" onclick="filterAndScroll('Sports')">Sports</a>
-      </div>
-      <div class="col-lg-2 col-6">
-        <h6>Support</h6>
-        <a href="#">Shipping Info</a>
-        <a href="#">Returns</a>
-        <a href="#">Size Guide</a>
-        <a href="#">FAQs</a>
-      </div>
-      <div class="col-lg-2 col-6">
-        <h6>Company</h6>
-        <a href="#story">About Us</a>
-        <a href="#">Careers</a>
-        <a href="#">Sustainability</a>
-        <a href="#">Press</a>
-      </div>
-      <div class="col-lg-2 col-6">
-        <h6>Contact</h6>
-        <a href="mailto:hello@velora.com">hello@velora.com</a>
-        <a href="tel:+10000000000">+1 (000) 000-0000</a>
-        <a href="#">Karachi, PK</a>
-      </div>
+
     </div>
-    <div class="footer-bottom d-flex flex-wrap justify-content-between">
-      <span>&copy; 2026 VELORA. All rights reserved.</span>
-      <span>Privacy Policy &nbsp;·&nbsp; Terms of Service</span>
+
+
+    <section class="section">
+
+        <div class="product-grid" id="categoryProducts"></div>
+
+    </section>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="aboutPage" class="page">
+
+    <section class="section">
+
+        <div class="about-wrapper">
+
+            <div class="about-box">
+
+                <span>ABOUT VELORA</span>
+
+                <h1>
+                    Style That Moves With You.
+                </h1>
+
+                <p>
+                    VELORA is a modern footwear brand created for people
+                    who believe great style should feel just as good as it looks.
+                    Our collections bring together modern design, everyday comfort
+                    and timeless confidence.
+
+                    <br><br>
+
+                    From everyday sneakers and refined men's footwear to elegant
+                    women's styles, sandals and comfortable slippers, every
+                    collection is selected to make your everyday steps better.
+
+                    <br><br>
+
+                    At VELORA, your footwear is more than just something you wear.
+                    It's part of your style, your movement and your everyday story.
+                </p>
+
+
+                <div class="about-points">
+
+                    <div class="about-point">
+
+                        <div class="about-point-icon">
+                            ✦
+                        </div>
+
+                        <h3>Modern Style</h3>
+
+                        <p>
+                            Clean and contemporary designs
+                            made for today's lifestyle.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-point">
+
+                        <div class="about-point-icon">
+                            ✓
+                        </div>
+
+                        <h3>Everyday Comfort</h3>
+
+                        <p>
+                            Footwear selected with comfort,
+                            ease and daily movement in mind.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-point">
+
+                        <div class="about-point-icon">
+                            ◆
+                        </div>
+
+                        <h3>Made For You</h3>
+
+                        <p>
+                            A versatile collection designed
+                            for different styles and occasions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button class="btn btn-light"
+                        onclick="showCategory('shoes')">
+                    EXPLORE COLLECTION
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contactPage" class="page">
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span>GET IN TOUCH</span>
+
+            <h2>Contact VELORA</h2>
+
+            <p>
+                Have a question, order issue or product inquiry?
+                Send us a message and our team will get back to you.
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <h2>Send a Message</h2>
+
+                <p class="contact-card-intro">
+                    Choose the subject that best matches your request
+                    and tell us how we can help you.
+                </p>
+
+                <form class="contact-form"
+                      onsubmit="submitContact(event)">
+
+                    <input
+                        id="contactName"
+                        type="text"
+                        placeholder="Full Name"
+                        minlength="3"
+                        required
+                    >
+
+
+                    <input
+                        id="contactEmail"
+                        type="email"
+                        placeholder="Email Address"
+                        required
+                    >
+
+
+                    <select
+                        id="contactSubject"
+                        required
+                    >
+
+                        <option value="">
+                            Select Subject
+                        </option>
+
+                        <option>
+                            Product Inquiry
+                        </option>
+
+                        <option>
+                            Order Issue
+                        </option>
+
+                        <option>
+                            Delivery Question
+                        </option>
+
+                        <option>
+                            Size / Product Information
+                        </option>
+
+                        <option>
+                            Return / Exchange
+                        </option>
+
+                        <option>
+                            General Question
+                        </option>
+
+                    </select>
+
+
+                    <textarea
+                        id="contactMessage"
+                        placeholder="Tell us about your question or issue..."
+                        minlength="10"
+                        required
+                    ></textarea>
+
+
+                    <button class="contact-submit">
+                        SEND MESSAGE
+                    </button>
+
+                </form>
+
+
+                <div class="contact-info-row">
+
+                    <div class="contact-info-box">
+                        <strong>RESPONSE</strong>
+                        <span>As Soon As Possible</span>
+                    </div>
+
+                    <div class="contact-info-box">
+                        <strong>SUPPORT</strong>
+                        <span>VELORA Team</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <iframe
+                class="map"
+                src="https://www.google.com/maps?q=Karachi,Pakistan&output=embed"
+                loading="lazy">
+            </iframe>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =========================
+     ORDER PAGE
+========================= -->
+
+<section id="orderPage" class="page">
+
+    <section class="section">
+
+        <div class="order-container">
+
+            <div class="order-title">
+
+                <span>SECURE CHECKOUT</span>
+
+                <h1>Complete Your Order</h1>
+
+            </div>
+
+
+            <div class="order-card">
+
+                <div class="order-product-preview">
+
+                    <img id="orderImage"
+                         src=""
+                         alt="Product">
+
+                    <div>
+
+                        <h3 id="orderProductName">
+                            Product
+                        </h3>
+
+                        <p id="orderProductPrice">
+                            Rs. 0
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form
+                    class="order-form"
+                    onsubmit="placeOrder(event)"
+                >
+
+                    <div class="order-grid">
+
+                        <div class="order-group">
+
+                            <label>Full Name</label>
+
+                            <input
+                                id="orderName"
+                                type="text"
+                                placeholder="Enter your full name"
+                                minlength="3"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="order-group">
+
+                            <label>Phone Number</label>
+
+                            <input
+                                id="orderPhone"
+                                type="tel"
+                                placeholder="03XXXXXXXXX"
+                                pattern="[0-9]{10,15}"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="order-group">
+
+                            <label>Email</label>
+
+                            <input
+                                id="orderEmail"
+                                type="email"
+                                placeholder="example@email.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="order-group">
+
+                            <label>City</label>
+
+                            <select id="orderCity" required>
+
+                                <option value="">
+                                    Select City
+                                </option>
+
+                                <option>Karachi</option>
+                                <option>Lahore</option>
+                                <option>Islamabad</option>
+                                <option>Rawalpindi</option>
+                                <option>Faisalabad</option>
+                                <option>Multan</option>
+                                <option>Hyderabad</option>
+                                <option>Peshawar</option>
+                                <option>Quetta</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="order-group full">
+
+                            <label>Complete Address</label>
+
+                            <input
+                                id="orderAddress"
+                                type="text"
+                                placeholder="House / Street / Area"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="order-group">
+
+                            <label>Size</label>
+
+                            <select id="orderSize" required>
+
+                                <option value="">
+                                    Select Size
+                                </option>
+
+                                <option>36</option>
+                                <option>37</option>
+                                <option>38</option>
+                                <option>39</option>
+                                <option>40</option>
+                                <option>41</option>
+                                <option>42</option>
+                                <option>43</option>
+                                <option>44</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="order-group">
+
+                            <label>Quantity</label>
+
+                            <input
+                                id="orderQty"
+                                type="number"
+                                min="1"
+                                value="1"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="order-group full">
+
+                            <label>Payment Method</label>
+
+                            <select id="paymentMethod" required>
+
+                                <option value="">
+                                    Select Payment
+                                </option>
+
+                                <option>
+                                    Cash on Delivery
+                                </option>
+
+                                <option>
+                                    Bank Transfer
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="order-submit">
+                        PLACE ORDER
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =========================
+     CART DRAWER
+========================= -->
+
+<div class="overlay"
+     id="cartOverlay"
+     onclick="closeCart()">
+</div>
+
+
+<aside class="drawer" id="cartDrawer">
+
+    <div class="drawer-head">
+
+        <h2>Your Cart</h2>
+
+        <button class="close-btn"
+                onclick="closeCart()">
+            ×
+        </button>
+
     </div>
-  </div>
+
+
+    <div class="drawer-content"
+         id="cartItems">
+    </div>
+
+
+    <div class="drawer-bottom">
+
+        <div class="total-row">
+
+            <span>Total</span>
+
+            <span id="cartTotal">
+                Rs. 0
+            </span>
+
+        </div>
+
+        <button class="checkout-btn"
+                onclick="cartCheckout()">
+            PROCEED TO ORDER
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =========================
+     WISHLIST DRAWER
+========================= -->
+
+<div class="overlay"
+     id="wishOverlay"
+     onclick="closeWishlist()">
+</div>
+
+
+<aside class="drawer"
+       id="wishDrawer">
+
+    <div class="drawer-head">
+
+        <h2>Wishlist</h2>
+
+        <button class="close-btn"
+                onclick="closeWishlist()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="drawer-content"
+         id="wishlistItems">
+    </div>
+
+</aside>
+
+
+<!-- =========================
+     ORDER SUCCESS POPUP
+========================= -->
+
+<div class="success-overlay"
+     id="successOverlay">
+
+    <div class="success-popup">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>Order Confirmed!</h2>
+
+        <p id="successMessage">
+            Thank you for your purchase.
+            Your order has been received successfully.
+        </p>
+
+        <button onclick="closeSuccess()">
+            BACK TO HOME
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     CONTACT SUCCESS POPUP
+========================= -->
+
+<div class="contact-success-overlay"
+     id="contactSuccessOverlay">
+
+    <div class="contact-success-popup">
+
+        <div class="contact-success-icon">
+            ✓
+        </div>
+
+        <h2>Request Submitted!</h2>
+
+        <p>
+            Your request has been successfully submitted to
+            the VELORA team.
+
+            <br><br>
+
+            InshaAllah, we will review your message and
+            you will receive a response very soon.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast"
+     id="toast">
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <strong>VELORA</strong>
+
+    <p>
+        Premium footwear for every step.
+    </p>
+
+    <p>
+        © 2026 VELORA — All Rights Reserved.
+    </p>
+
 </footer>
 
-<!-- ============ CART SIDEBAR ============ -->
-<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-<div class="cart-sidebar" id="cartSidebar">
-  <div class="cart-head">
-    <h5 class="mb-0">Your Bag (<span id="cartItemCount">0</span>)</h5>
-    <button class="icon-btn" onclick="closeCart()"><i class="bi bi-x-lg"></i></button>
-  </div>
-  <div class="cart-body" id="cartBody"></div>
-  <div class="cart-foot">
-    <div class="d-flex justify-content-between mb-3"><span>Subtotal</span><strong id="cartTotal">$0</strong></div>
-    <button class="btn-velora w-100" onclick="checkout()">Checkout</button>
-  </div>
-</div>
 
-<!-- ============ SEARCH OVERLAY ============ -->
-<div class="search-overlay" id="searchOverlay">
-  <button class="search-close" onclick="closeSearch()"><i class="bi bi-x-lg"></i></button>
-  <div class="w-100 text-center">
-    <input type="text" id="searchInput" placeholder="Search for shoes..." oninput="runSearch()">
-    <div id="searchResults" class="text-start mx-auto"></div>
-  </div>
-</div>
-
-<!-- ============ QUICK VIEW MODAL ============ -->
-<div class="modal fade" id="quickViewModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content" style="border-radius:14px;border:none">
-      <div class="modal-body p-4" id="quickViewBody"></div>
-    </div>
-  </div>
-</div>
-
-<!-- ============ TOAST ============ -->
-<div class="toast-custom" id="toastBox"><i class="bi bi-check-circle-fill"></i><span id="toastMsg">Done</span></div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-/* ============ PRODUCT DATA ============ */
-const products = [
- {id:1,name:"Velora AirFlex Runner",cat:"Running",price:89,rating:4.5,img:"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=90"},
- {id:2,name:"Velora Urban X",cat:"Sneakers",price:99,rating:4.7,img:"https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=900&q=90"},
- {id:3,name:"Velora Street Pro",cat:"Casual",price:109,rating:4.6,img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=90"},
- {id:4,name:"Velora CloudStep",cat:"Running",price:119,rating:4.8,img:"https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=90"},
- {id:5,name:"Velora Velocity",cat:"Sports",price:129,rating:4.4,img:"https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=900&q=90"},
- {id:6,name:"Velora Motion One",cat:"Sports",price:95,rating:4.3,img:"https://images.unsplash.com/photo-1554133059-5e8b7f5b3a4d?auto=format&fit=crop&w=900&q=90"},
- {id:7,name:"Velora Apex",cat:"Sneakers",price:139,rating:4.9,img:"https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=90"},
- {id:8,name:"Velora Nova",cat:"Casual",price:115,rating:4.5,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=90"}
-];
-const arrivals = [
- {id:9,name:"Velora Halo",cat:"New",price:149,img:"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=90"},
- {id:10,name:"Velora Drift",cat:"New",price:124,img:"https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=1000&q=90"},
- {id:11,name:"Velora Ember",cat:"New",price:132,img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1000&q=90"}
-];
 
-let cart = JSON.parse(localStorage.getItem('velora_cart')||'[]');
-let wishlist = JSON.parse(localStorage.getItem('velora_wish')||'[]');
-let currentFilter = 'All';
+/* =========================
+   PRODUCT DATA
+   EXISTING PRODUCT IMAGES
+   ARE UNCHANGED
+========================= */
 
-/* ============ RENDER PRODUCTS ============ */
-function starIcons(r){
-  let s='';
-  for(let i=1;i<=5;i++){ s += i<=Math.round(r) ? '<i class="bi bi-star-fill"></i> ' : '<i class="bi bi-star"></i> '; }
-  return s;
-}
-function renderProducts(){
-  const grid = document.getElementById('productGrid');
-  const list = currentFilter==='All' ? products : products.filter(p=>p.cat===currentFilter);
-  grid.innerHTML = list.map(p=>`
-    <div class="col-md-6 col-lg-3">
-      <div class="product-card reveal show">
-        <div class="product-img-box">
-          <button class="wish-btn ${wishlist.includes(p.id)?'active':''}" onclick="toggleWishlist(${p.id})"><i class="bi bi-heart"></i></button>
-          <img src="${p.img}" alt="${p.name}">
-          <button class="quick-view-btn" onclick="openQuickView(${p.id})">Quick View</button>
-        </div>
-        <div class="product-body">
-          <div class="product-cat">${p.cat.toUpperCase()}</div>
-          <div class="product-name">${p.name}</div>
-          <div class="product-stars">${starIcons(p.rating)} <span class="text-muted">(${p.rating})</span></div>
-          <div class="product-price">$${p.price}</div>
-          <button class="add-cart-btn" onclick="addToCart(${p.id}, this)">Add to Cart</button>
-        </div>
-      </div>
-    </div>`).join('');
-}
-function renderArrivals(){
-  document.getElementById('arrivalGrid').innerHTML = arrivals.map(a=>`
-    <div class="col-lg-4 reveal show">
-      <div class="arrival-card">
-        <img src="${a.img}" alt="${a.name}">
-        <div class="arrival-text">
-          <div class="product-cat">JUST DROPPED</div>
-          <h5 class="mt-1">${a.name}</h5>
-          <div class="d-flex justify-content-between align-items-center mt-2">
-            <strong>$${a.price}</strong>
-            <a href="#" class="discover-link" onclick="openQuickView(${a.id});return false;">Discover</a>
-          </div>
-        </div>
-      </div>
-    </div>`).join('');
-}
+const products = {
 
-/* ============ FILTER ============ */
-document.getElementById('filterBar').addEventListener('click', e=>{
-  if(!e.target.classList.contains('filter-btn')) return;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  e.target.classList.add('active');
-  currentFilter = e.target.dataset.f;
-  renderProducts();
+shoes:[
+    {
+        name:"Urban Runner",
+        price:5499,
+        image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Classic Street",
+        price:6299,
+        image:"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Sport Flex",
+        price:6499,
+        image:"https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Daily Walk",
+        price:4999,
+        image:"https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Premium Runner",
+        price:7299,
+        image:"https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Street Pro",
+        price:5799,
+        image:"https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Velocity",
+        price:6899,
+        image:"https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Black Edition",
+        price:7499,
+        image:"https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=900&q=90"
+    }
+],
+
+men:[
+    {
+        name:"Men's Urban Runner",
+        price:5499,
+        image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Men's Classic",
+        price:6299,
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMiHhQMQBERjGfxqElieBU6jZPk6jhqqBbfsPa21TnjDZllO2pY4t80iQl&s=10"
+    },
+    {
+        name:"Men's Sport Flex",
+        price:6499,
+        image:"https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Men's Street Pro",
+        price:5799,
+        image:"https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Men's Daily",
+        price:4999,
+        image:"https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Men's Premium",
+        price:7299,
+        image:"https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Men's Runner X",
+        price:6899,
+        image:"https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Men's Black",
+        price:7499,
+        image:"https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=900&q=90"
+    }
+],
+
+women:[
+    {
+        name:"Luna Heels",
+        price:5499,
+        image:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Elegant Walk",
+        price:6299,
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ135QPnrt2mmAiCbPcIuXOSUBSWGY4nR3gp7DMRWN8tQ&s"
+    },
+    {
+        name:"Fashion Step",
+        price:5799,
+        image:"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Classic Lady",
+        price:6499,
+        image:"https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Soft Heel",
+        price:4999,
+        image:"https://valenciapakistan.com/cdn/shop/files/D762AEE7-AB6B-433E-B3E0-6A9D8ED11489.png?v=1788236061"
+    },
+    {
+        name:"Velvet Step",
+        price:7299,
+        image:"https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Modern Heel",
+        price:5999,
+        image:"https://images.unsplash.com/photo-1581101767113-1677fc2beaa8?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Chic Comfort",
+        price:6899,
+        image:"https://images.unsplash.com/photo-1573100925118-870b8efc799d?auto=format&fit=crop&w=900&q=90"
+    }
+],
+
+sandals:[
+    {
+        name:"Summer Strap Sandal",
+        price:2999,
+        image:"https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Leather Comfort Sandal",
+        price:3299,
+        image:"https://images.unsplash.com/photo-1562273138-f46be4ebdf33?auto=format&fit=crop&w=900&q=90"
+    },
+    {
+        name:"Classic Summer Sandal",
+        price:2799,
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTm5KNaJKSF2fMLGtp-5yBhjqAT6yrcFLvv9kgQ9o1rQ&s=10"
+    },
+    {
+        name:"Minimal Strap",
+        price:2699,
+        image:"https://www.rickowens.eu/cdn/shop/files/RP01F6815_LGY_36_06.jpg?v=1769695413&width=900"
+    },
+    {
+        name:"Urban Sandal",
+        price:3499,
+        image:"https://breakin.pk/cdn/shop/files/7C223CF0-7583-4FF2-A5EA-F3EAAC204577.png?v=1771092591"
+    },
+    {
+        name:"Daily Sandal",
+        price:2899,
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGZp4G-SlLFI8bY3WSST3ZVY_1gU2aXBSVXqyHEDirMj2kU5EnFpKhCBbe&s=10"
+    },
+    {
+        name:"Soft Walk Sandal",
+        price:3099,
+        image:"https://breakin.pk/cdn/shop/files/49E533C6-ACF5-4ED6-967A-B82C1F32FCFE.jpg?v=1778671764&width=2820"
+    },
+    {
+        name:"Premium Sandal",
+        price:3899,
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpb3TWUddaLKcH9bO3dgyGfn4TY6sBalz1e5_m0I0X40EmBF8lAaNGjmWh&s=10"
+    }
+],
+
+slippers:[
+    {
+        name:"Cloud Comfort Slipper",
+        price:1999,
+        image:"https://img.drz.lazcdn.com/static/pk/p/d27cac63c8707871a3480667265b8dd9.jpg_960x960q80.jpg_.webp"
+    },
+    {
+        name:"Soft Home Slipper",
+        price:1799,
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8PWV84xkX_sa3RFH-T9PVl-fVbtYlWoQxuRVb9kYD-8i8p-KU9WdEpMaS&s=10"
+    },
+    {
+        name:"Classic Slide",
+        price:1499,
+        image:"https://static-01.daraz.pk/p/ccd1cdcc546df7e40212ef05919fd2ef.jpg"
+    },
+    {
+        name:"Relax Pro",
+        price:1899,
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbejEBsGNqmnflSe7YpaI2_TUaWcR-8TvQM6LkqMLC-w&s=10"
+    },
+    {
+        name:"Easy Daily Slide",
+        price:1699,
+        image:"https://static.markaz.app/pakistan/thumbnails/products/3063-159-MZ3063200018NI-762305001-product-1.webp"
+    },
+    {
+        name:"Comfort Walk",
+        price:1599,
+        image:"https://runnerz.pk/cdn/shop/files/3_f7dc09c2-c5f1-4b44-9f17-f11acd96a8d0.jpg?v=1769610572&width=3840"
+    },
+    {
+        name:"Premium Slipper",
+        price:2099,
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvzHI7QGHT85Igr6EFTU70YmTAR8ajgjbZDm17E8NmuA4KRvMERdbq-sYc&s=10"
+    },
+    {
+        name:"Soft Slide",
+        price:1899,
+        image:"https://i.pinimg.com/736x/c0/45/b8/c045b87d12e97b92a50b1873ecfe79aa.jpg"
+    }
+]
+
+};
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let cart = [];
+
+let wishlist = [];
+
+let selectedProduct = null;
+
+
+/* =========================
+   LOADER
+========================= */
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("loader")
+        .classList.add("hide");
+
+    },700);
+
 });
-function filterAndScroll(cat){
-  const btn = document.querySelector(`.filter-btn[data-f="${cat}"]`) || document.querySelector('.filter-btn[data-f="All"]');
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  currentFilter = btn.dataset.f;
-  renderProducts();
-  document.getElementById('products').scrollIntoView({behavior:'smooth'});
-  document.getElementById('mobileMenu').style.display='none';
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function hideAllPages(){
+
+    document
+    .querySelectorAll(".page")
+    .forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    document
+    .getElementById("navLinks")
+    .classList.remove("show");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
-/* ============ CART ============ */
-function saveCart(){ localStorage.setItem('velora_cart', JSON.stringify(cart)); updateCartUI(); }
-function addToCart(id, btn){
-  const p = [...products,...arrivals].find(x=>x.id===id);
-  const existing = cart.find(c=>c.id===id);
-  if(existing){ existing.qty++; } else { cart.push({...p, qty:1}); }
-  saveCart();
-  showToast(`${p.name} added to bag`);
-  if(btn){ btn.textContent='Added ✓'; btn.classList.add('added'); setTimeout(()=>{btn.textContent='Add to Cart';btn.classList.remove('added');},1200); }
+
+function showHome(){
+
+    hideAllPages();
+
+    document
+    .getElementById("homePage")
+    .classList.add("active");
+
 }
-function changeQty(id, delta){
-  const item = cart.find(c=>c.id===id);
-  if(!item) return;
-  item.qty += delta;
-  if(item.qty<=0) cart = cart.filter(c=>c.id!==id);
-  saveCart();
+
+
+function showAbout(){
+
+    hideAllPages();
+
+    document
+    .getElementById("aboutPage")
+    .classList.add("active");
+
 }
-function removeFromCart(id){ cart = cart.filter(c=>c.id!==id); saveCart(); showToast('Item removed'); }
-function updateCartUI(){
-  const count = cart.reduce((s,c)=>s+c.qty,0);
-  document.getElementById('cartCount').textContent = count;
-  document.getElementById('cartItemCount').textContent = count;
-  const body = document.getElementById('cartBody');
-  if(cart.length===0){
-    body.innerHTML = `<div class="empty-cart"><i class="bi bi-bag-x" style="font-size:2.4rem"></i><p class="mt-3">Your bag is empty</p></div>`;
-  } else {
-    body.innerHTML = cart.map(c=>`
-      <div class="cart-item">
-        <img src="${c.img}" alt="${c.name}">
-        <div class="flex-grow-1">
-          <div class="d-flex justify-content-between"><strong style="font-size:.9rem">${c.name}</strong>
-            <button class="icon-btn p-0" style="font-size:.9rem" onclick="removeFromCart(${c.id})"><i class="bi bi-trash"></i></button>
-          </div>
-          <div class="text-muted small">${c.cat}</div>
-          <div class="d-flex justify-content-between align-items-center mt-2">
-            <div class="qty-box">
-              <button onclick="changeQty(${c.id},-1)">−</button>
-              <span class="px-2">${c.qty}</span>
-              <button onclick="changeQty(${c.id},1)">+</button>
+
+
+function showContact(){
+
+    hideAllPages();
+
+    document
+    .getElementById("contactPage")
+    .classList.add("active");
+
+}
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+function showCategory(category){
+
+    hideAllPages();
+
+    document
+    .getElementById("categoryPage")
+    .classList.add("active");
+
+
+    const title = {
+
+        shoes:"Shoes",
+        men:"Men's Collection",
+        women:"Women's Collection",
+        sandals:"Sandals",
+        slippers:"Slippers"
+
+    };
+
+
+    const description = {
+
+        shoes:"Premium shoes for everyday confidence.",
+        men:"Modern footwear designed for him.",
+        women:"Elegant footwear designed for her.",
+        sandals:"Light, stylish and comfortable sandals.",
+        slippers:"Relaxed comfort for every day."
+
+    };
+
+
+    /* CATEGORY HERO IMAGES ONLY */
+
+    const heroImages = {
+
+        shoes:
+        "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1800&q=90",
+
+        men:
+        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1800&q=90",
+
+        women:
+        "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=1800&q=90",
+
+        sandals:
+        "https://images.unsplash.com/photo-1562273138-f46be4ebdf33?auto=format&fit=crop&w=1800&q=90",
+
+        slippers:
+        "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&w=1800&q=90"
+
+    };
+
+
+    const categoryHero =
+        document.getElementById("categoryHero");
+
+
+    categoryHero.style.backgroundImage =
+        `linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)), url("${heroImages[category]}")`;
+
+
+    document
+    .getElementById("categorySmall")
+    .innerText =
+        "VELORA " + category.toUpperCase() + " COLLECTION";
+
+
+    document
+    .getElementById("categoryTitle")
+    .innerText = title[category];
+
+
+    document
+    .getElementById("categoryDescription")
+    .innerText = description[category];
+
+
+    renderProducts(category);
+
+}
+
+
+/* =========================
+   RENDER PRODUCTS
+========================= */
+
+function renderProducts(category){
+
+    const container =
+        document.getElementById("categoryProducts");
+
+    container.innerHTML="";
+
+
+    products[category].forEach((product,index)=>{
+
+        const isWish =
+            wishlist.some(item=>item.name===product.name);
+
+
+        const card =
+            document.createElement("div");
+
+
+        card.className="product-card";
+
+
+        card.style.animationDelay =
+            (index * .06)+"s";
+
+
+        card.innerHTML=`
+
+            <div class="product-img">
+
+                <span class="product-tag">
+                    NEW
+                </span>
+
+                <button
+                    class="wishlist-btn ${isWish ? "active":""}"
+                    onclick="toggleWishlist('${product.name}')"
+                >
+                    ${isWish ? "♥":"♡"}
+                </button>
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
+
             </div>
-            <strong>$${c.price*c.qty}</strong>
-          </div>
-        </div>
-      </div>`).join('');
-  }
-  const total = cart.reduce((s,c)=>s+c.price*c.qty,0);
-  document.getElementById('cartTotal').textContent = '$'+total;
-}
-function openCart(){ document.getElementById('cartSidebar').classList.add('show'); document.getElementById('cartOverlay').classList.add('show'); }
-function closeCart(){ document.getElementById('cartSidebar').classList.remove('show'); document.getElementById('cartOverlay').classList.remove('show'); }
-function checkout(){
-  if(cart.length===0){ showToast('Your bag is empty'); return; }
-  showToast('Order placed! Thank you for shopping with Velora');
-  cart = []; saveCart(); closeCart();
-}
 
-/* ============ WISHLIST ============ */
-function toggleWishlist(id){
-  if(wishlist.includes(id)) wishlist = wishlist.filter(w=>w!==id);
-  else { wishlist.push(id); showToast('Added to wishlist'); }
-  localStorage.setItem('velora_wish', JSON.stringify(wishlist));
-  document.getElementById('wishCount').textContent = wishlist.length;
-  renderProducts();
-}
-function toggleWishPanel(){
-  if(wishlist.length===0){ showToast('Your wishlist is empty'); return; }
-  const names = wishlist.map(id=>{ const p=[...products,...arrivals].find(x=>x.id===id); return p?p.name:''; }).join(', ');
-  showToast('Wishlist: '+names);
-}
 
-/* ============ QUICK VIEW ============ */
-function openQuickView(id){
-  const p = [...products,...arrivals].find(x=>x.id===id);
-  document.getElementById('quickViewBody').innerHTML = `
-    <div class="row g-4 align-items-center">
-      <div class="col-md-6"><div class="qv-img"><img src="${p.img}" alt="${p.name}"></div></div>
-      <div class="col-md-6">
-        <div class="product-cat">${(p.cat||'').toUpperCase()}</div>
-        <h3 class="mt-1">${p.name}</h3>
-        <div class="product-stars mb-2">${starIcons(p.rating||4.5)} <span class="text-muted">(${p.rating||4.5})</span></div>
-        <h4 class="mb-3">$${p.price}</h4>
-        <p class="text-muted">Premium comfort meets modern design. Breathable upper, cushioned sole, built for everyday performance.</p>
-        <div class="d-flex gap-2 mt-3">
-          <button class="btn-velora" onclick="addToCart(${p.id});bootstrap.Modal.getInstance(document.getElementById('quickViewModal')).hide();">Add to Cart</button>
-          <button class="btn-velora-outline" onclick="toggleWishlist(${p.id})"><i class="bi bi-heart"></i> Wishlist</button>
-        </div>
-      </div>
-    </div>`;
-  new bootstrap.Modal(document.getElementById('quickViewModal')).show();
+            <div class="product-info">
+
+                <div class="product-category">
+                    VELORA
+                </div>
+
+                <h3>
+                    ${product.name}
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    Rs. ${product.price.toLocaleString()}
+                </div>
+
+
+                <div class="product-buttons">
+
+                    <button
+                        onclick='addToCart(${JSON.stringify(product)})'
+                    >
+                        ADD TO CART
+                    </button>
+
+                    <button
+                        onclick='buyNow(${JSON.stringify(product)})'
+                    >
+                        BUY NOW
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
 }
 
-/* ============ SEARCH ============ */
-function openSearch(){ document.getElementById('searchOverlay').classList.add('show'); setTimeout(()=>document.getElementById('searchInput').focus(),300); }
-function closeSearch(){ document.getElementById('searchOverlay').classList.remove('show'); document.getElementById('searchInput').value=''; document.getElementById('searchResults').innerHTML=''; }
-function runSearch(){
-  const q = document.getElementById('searchInput').value.toLowerCase().trim();
-  const box = document.getElementById('searchResults');
-  if(!q){ box.innerHTML=''; return; }
-  const results = [...products,...arrivals].filter(p=>p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q));
-  box.innerHTML = results.length ? results.map(p=>`
-    <div class="sr-item" onclick="closeSearch();openQuickView(${p.id})">
-      <img src="${p.img}" alt="${p.name}">
-      <div><div>${p.name}</div><small class="text-muted">${p.cat} · $${p.price}</small></div>
-    </div>`).join('') : `<p class="text-muted mt-3">No products found for "${q}"</p>`;
-}
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeSearch(); });
 
-/* ============ NEWSLETTER ============ */
-function subscribeNewsletter(e){
-  e.preventDefault();
-  const email = document.getElementById('newsEmail').value;
-  if(email){ showToast('Subscribed! 10% off code sent to your email'); document.getElementById('newsEmail').value=''; }
-  return false;
-}
+/* =========================
+   CART
+========================= */
 
-/* ============ TOAST ============ */
-let toastTimer;
-function showToast(msg){
-  const box = document.getElementById('toastBox');
-  document.getElementById('toastMsg').textContent = msg;
-  box.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>box.classList.remove('show'), 2800);
-}
+function addToCart(product){
 
-/* ============ MOBILE MENU ============ */
-function toggleMobileMenu(){
-  const m = document.getElementById('mobileMenu');
-  m.style.display = m.style.display==='none' ? 'block' : 'none';
+    const existing =
+        cart.find(item=>item.name===product.name);
+
+
+    if(existing){
+
+        existing.qty++;
+
+    }else{
+
+        cart.push({
+            ...product,
+            qty:1
+        });
+
+    }
+
+
+    updateCart();
+
+    showToast("Added to cart ✓");
+
+    openCart();
+
 }
 
-/* ============ NAVBAR SCROLL EFFECT ============ */
-window.addEventListener('scroll', ()=>{
-  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY>40);
-});
 
-/* ============ SCROLL REVEAL ============ */
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('show'); });
-},{threshold:0.15});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+function updateCart(){
 
-/* ============ INIT ============ */
-renderProducts();
-renderArrivals();
-updateCartUI();
-document.getElementById('wishCount').textContent = wishlist.length;
+    const container =
+        document.getElementById("cartItems");
+
+    container.innerHTML="";
+
+    let total=0;
+
+    let count=0;
+
+
+    cart.forEach((item,index)=>{
+
+        total += item.price * item.qty;
+
+        count += item.qty;
+
+
+        container.innerHTML += `
+
+            <div class="cart-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+                <div class="cart-item-info">
+
+                    <h4>
+                        ${item.name}
+                    </h4>
+
+                    <div class="cart-price">
+                        Rs. ${(item.price * item.qty).toLocaleString()}
+                    </div>
+
+                    <div class="qty">
+
+                        <button
+                            onclick="changeQty(${index},-1)"
+                        >
+                            −
+                        </button>
+
+                        <span>
+                            ${item.qty}
+                        </span>
+
+                        <button
+                            onclick="changeQty(${index},1)"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="delete-btn"
+                    onclick="removeCart(${index})"
+                    title="Delete item"
+                >
+                    🗑
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+
+    if(cart.length===0){
+
+        container.innerHTML=`
+
+            <div class="empty">
+
+                🛒
+
+                <br><br>
+
+                Your cart is empty.
+
+            </div>
+
+        `;
+
+    }
+
+
+    document
+    .getElementById("cartTotal")
+    .innerText =
+        "Rs. "+total.toLocaleString();
+
+
+    document
+    .getElementById("cartCount")
+    .innerText=count;
+
+}
+
+
+function changeQty(index,amount){
+
+    cart[index].qty += amount;
+
+
+    if(cart[index].qty<=0){
+
+        cart.splice(index,1);
+
+    }
+
+
+    updateCart();
+
+}
+
+
+function removeCart(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+
+    showToast("Item removed from cart");
+
+}
+
+
+function openCart(){
+
+    document
+    .getElementById("cartDrawer")
+    .classList.add("open");
+
+    document
+    .getElementById("cartOverlay")
+    .classList.add("show");
+
+}
+
+
+function closeCart(){
+
+    document
+    .getElementById("cartDrawer")
+    .classList.remove("open");
+
+    document
+    .getElementById("cartOverlay")
+    .classList.remove("show");
+
+}
+
+
+/* =========================
+   WISHLIST
+========================= */
+
+function toggleWishlist(name){
+
+    const product =
+        Object.values(products)
+        .flat()
+        .find(item=>item.name===name);
+
+
+    const exists =
+        wishlist.some(item=>item.name===name);
+
+
+    if(exists){
+
+        wishlist =
+            wishlist.filter(item=>item.name!==name);
+
+        showToast("Removed from wishlist");
+
+    }else{
+
+        wishlist.push(product);
+
+        showToast("Added to Wishlist ♥");
+
+    }
+
+
+    document
+    .getElementById("wishCount")
+    .innerText=wishlist.length;
+
+
+    renderWishlist();
+
+
+    const currentCategory =
+        document
+        .getElementById("categoryTitle")
+        .innerText;
+
+
+    if(
+        document
+        .getElementById("categoryPage")
+        .classList.contains("active")
+    ){
+
+        let category="shoes";
+
+
+        if(currentCategory.includes("Men"))
+            category="men";
+
+
+        if(currentCategory.includes("Women"))
+            category="women";
+
+
+        if(currentCategory.includes("Sandals"))
+            category="sandals";
+
+
+        if(currentCategory.includes("Slippers"))
+            category="slippers";
+
+
+        renderProducts(category);
+
+    }
+
+}
+
+
+function renderWishlist(){
+
+    const container =
+        document.getElementById("wishlistItems");
+
+    container.innerHTML="";
+
+
+    if(wishlist.length===0){
+
+        container.innerHTML=`
+
+            <div class="empty">
+
+                ♡
+
+                <br><br>
+
+                Your Wishlist is empty.
+
+                <br>
+
+                Add your favourite shoes here.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    wishlist.forEach((item,index)=>{
+
+        container.innerHTML += `
+
+            <div class="wishlist-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+                <div class="wishlist-item-info">
+
+                    <h4>
+                        ${item.name}
+                    </h4>
+
+                    <p>
+                        Rs. ${item.price.toLocaleString()}
+                    </p>
+
+                </div>
+
+                <button
+                    class="wish-cart"
+                    onclick='wishlistToCart(${JSON.stringify(item)})'
+                >
+                    CART
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+function wishlistToCart(product){
+
+    addToCart(product);
+
+    closeWishlist();
+
+}
+
+
+function openWishlist(){
+
+    renderWishlist();
+
+    document
+    .getElementById("wishDrawer")
+    .classList.add("open");
+
+    document
+    .getElementById("wishOverlay")
+    .classList.add("show");
+
+}
+
+
+function closeWishlist(){
+
+    document
+    .getElementById("wishDrawer")
+    .classList.remove("open");
+
+    document
+    .getElementById("wishOverlay")
+    .classList.remove("show");
+
+}
+
+
+/* =========================
+   BUY NOW
+========================= */
+
+function buyNow(product){
+
+    selectedProduct=product;
+
+
+    document
+    .getElementById("orderImage")
+    .src=product.image;
+
+
+    document
+    .getElementById("orderProductName")
+    .innerText=product.name;
+
+
+    document
+    .getElementById("orderProductPrice")
+    .innerText=
+        "Rs. "+product.price.toLocaleString();
+
+
+    hideAllPages();
+
+
+    document
+    .getElementById("orderPage")
+    .classList.add("active");
+
+}
+
+
+/* =========================
+   CART CHECKOUT
+========================= */
+
+function cartCheckout(){
+
+    if(cart.length===0){
+
+        showToast("Your cart is empty");
+
+        return;
+
+    }
+
+
+    selectedProduct=cart[0];
+
+
+    document
+    .getElementById("orderImage")
+    .src=selectedProduct.image;
+
+
+    document
+    .getElementById("orderProductName")
+    .innerText =
+        cart.length===1
+        ? selectedProduct.name
+        : cart.length+" Products";
+
+
+    document
+    .getElementById("orderProductPrice")
+    .innerText =
+        "Rs. "+getCartTotal().toLocaleString();
+
+
+    closeCart();
+
+    hideAllPages();
+
+
+    document
+    .getElementById("orderPage")
+    .classList.add("active");
+
+}
+
+
+function getCartTotal(){
+
+    return cart.reduce(
+        (total,item)=>
+            total+(item.price*item.qty),
+        0
+    );
+
+}
+
+
+/* =========================
+   ORDER
+========================= */
+
+function placeOrder(event){
+
+    event.preventDefault();
+
+
+    const name =
+        document
+        .getElementById("orderName")
+        .value.trim();
+
+
+    const phone =
+        document
+        .getElementById("orderPhone")
+        .value.trim();
+
+
+    if(name.length<3){
+
+        showToast("Please enter a valid name");
+
+        return;
+
+    }
+
+
+    if(phone.length<10){
+
+        showToast("Please enter a valid phone number");
+
+        return;
+
+    }
+
+
+    const productName =
+        selectedProduct
+        ? selectedProduct.name
+        : "your selected products";
+
+
+    document
+    .getElementById("successMessage")
+    .innerHTML = `
+
+        Thank you <strong>${name}</strong>!
+
+        <br><br>
+
+        Your order for
+        <strong>${productName}</strong>
+        has been successfully placed.
+
+        <br><br>
+
+        We will contact you shortly.
+
+    `;
+
+
+    document
+    .getElementById("successOverlay")
+    .classList.add("show");
+
+
+    cart=[];
+
+    updateCart();
+
+}
+
+
+/* =========================
+   ORDER SUCCESS
+========================= */
+
+function closeSuccess(){
+
+    document
+    .getElementById("successOverlay")
+    .classList.remove("show");
+
+
+    document
+    .querySelector(".order-form")
+    .reset();
+
+
+    showHome();
+
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+function submitContact(event){
+
+    event.preventDefault();
+
+
+    const name =
+        document
+        .getElementById("contactName")
+        .value.trim();
+
+
+    const email =
+        document
+        .getElementById("contactEmail")
+        .value.trim();
+
+
+    const subject =
+        document
+        .getElementById("contactSubject")
+        .value;
+
+
+    const message =
+        document
+        .getElementById("contactMessage")
+        .value.trim();
+
+
+    if(name.length<3){
+
+        showToast("Please enter your full name");
+
+        return;
+
+    }
+
+
+    if(!email){
+
+        showToast("Please enter your email address");
+
+        return;
+
+    }
+
+
+    if(!subject){
+
+        showToast("Please select a subject");
+
+        return;
+
+    }
+
+
+    if(message.length<10){
+
+        showToast("Message must contain at least 10 characters");
+
+        return;
+
+    }
+
+
+    /* SHOW CONTACT POPUP */
+
+    document
+    .getElementById("contactSuccessOverlay")
+    .classList.add("show");
+
+
+    event.target.reset();
+
+
+    /* AUTO CLOSE AFTER 3 SECONDS */
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("contactSuccessOverlay")
+        .classList.remove("show");
+
+    },3000);
+
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList.toggle("show");
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+
+    toast.innerText=message;
+
+
+    toast.classList.add("show");
+
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },2500);
+
+}
+
+
+/* =========================
+   INITIAL
+========================= */
+
+updateCart();
+
+renderWishlist();
+
 </script>
+
 </body>
 </html>
