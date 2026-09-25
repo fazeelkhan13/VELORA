@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELORA — Step Into Your Best</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<style>
+/* ===================== DESIGN TOKENS ===================== */
+:root{
+  --ink:#15140F;         /* near-black, warm */
+  --paper:#FAF7F1;       /* warm off-white */
+  --stone:#EFE7D8;       /* section background */
+  --umber:#6B5842;       /* muted warm accent (replaces generic gold) */
+  --umber-deep:#4A3C2C;
+  --line:#E2D8C4;
+  --muted:#847A6C;
+  --white:#ffffff;
+  --radius:2px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);overflow-x:hidden;font-weight:400}
+h1,h2,h3,h4,.display-font{font-family:'Fraunces',serif;letter-spacing:-0.01em}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--umber);color:#fff}
+.container-xl{max-width:1320px}
+.eyebrow{font-family:'Inter',sans-serif;color:var(--umber);font-weight:600;font-size:.78rem;letter-spacing:.14em}
+
+/* ===== NAVBAR ===== */
+.navbar-velora{position:fixed;top:0;left:0;right:0;z-index:1000;padding:26px 0;transition:.4s cubic-bezier(.4,0,.2,1);background:transparent}
+.navbar-velora.scrolled{padding:14px 0;background:rgba(250,247,241,.82);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);box-shadow:0 1px 0 var(--line)}
+.brand-logo{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.7rem;letter-spacing:.01em;color:var(--ink)}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--ink);margin:0 17px;position:relative;padding:4px 0;opacity:.85}
+.nav-links a:hover{opacity:1}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--umber);transition:.3s}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.icon-btn{background:none;border:none;font-size:1.12rem;color:var(--ink);position:relative;padding:6px 11px;transition:.25s}
+.icon-btn:hover{color:var(--umber);transform:translateY(-1px)}
+.badge-count{position:absolute;top:-1px;right:2px;background:var(--umber);color:#fff;font-size:.6rem;font-weight:700;border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;padding-top:128px;background:linear-gradient(155deg,var(--paper) 0%,var(--stone) 100%);position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2.7rem,6vw,5rem);font-weight:600;line-height:1.02;margin:18px 0 22px}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--umber)}
+.hero p.lead{color:var(--muted);font-size:1.12rem;max-width:440px;margin-bottom:36px;line-height:1.6}
+.btn-velora{background:var(--ink);color:#fff;border:1px solid var(--ink);padding:15px 34px;border-radius:40px;font-weight:600;font-size:.85rem;letter-spacing:.02em;transition:.3s;display:inline-block}
+.btn-velora:hover{background:var(--umber);border-color:var(--umber);color:#fff}
+.btn-velora-outline{background:transparent;color:var(--ink);border:1px solid var(--ink);padding:15px 34px;border-radius:40px;font-weight:600;font-size:.85rem;letter-spacing:.02em;transition:.3s;display:inline-block}
+.btn-velora-outline:hover{background:var(--ink);color:#fff}
+.hero-img-wrap{position:relative;text-align:center;padding:20px}
+.hero-frame{position:absolute;inset:26px;border:1px solid var(--line);border-radius:12px;z-index:0}
+.hero-img-wrap img{position:relative;z-index:1;max-width:88%;border-radius:14px;box-shadow:0 50px 70px -25px rgba(21,20,15,.35);animation:floatShoe 6s ease-in-out infinite}
+@keyframes floatShoe{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+.float-chip{position:absolute;background:#fff;padding:10px 18px;border-radius:50px;box-shadow:0 14px 34px rgba(21,20,15,.14);font-size:.76rem;font-weight:600;display:flex;align-items:center;gap:8px;z-index:2;animation:chipFloat 5s ease-in-out infinite}
+.float-chip i{color:var(--umber)}
+.chip1{top:4%;left:-2%;animation-delay:0s}
+.chip2{top:46%;right:-4%;animation-delay:1.2s}
+.chip3{bottom:2%;left:8%;animation-delay:2.4s}
+@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* fade in on scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+/* ===== SECTION TITLES ===== */
+.section-pad{padding:110px 0}
+.section-title{font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:600;margin-bottom:12px}
+.section-sub{color:var(--muted);margin-bottom:54px;max-width:460px}
+.section-sub.center{margin-inline:auto}
+
+/* ===== CATEGORY CARDS ===== */
+.cat-card{position:relative;border-radius:10px;overflow:hidden;height:400px;cursor:pointer;isolation:isolate;border:1px solid var(--line)}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:.7s cubic-bezier(.4,0,.2,1);filter:grayscale(.15)}
+.cat-card:hover img{transform:scale(1.07);filter:grayscale(0)}
+.cat-card::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(21,20,15,.8) 8%,rgba(21,20,15,0) 58%)}
+.cat-info{position:absolute;bottom:0;left:0;right:0;padding:28px;z-index:2;color:#fff}
+.cat-info h4{font-weight:500;margin-bottom:14px;font-size:1.4rem}
+.cat-explore{border:1px solid rgba(255,255,255,.65);color:#fff;padding:8px 20px;font-size:.76rem;font-weight:600;border-radius:40px;display:inline-block;transition:.3s}
+.cat-explore:hover{background:#fff;color:var(--ink)}
+
+/* ===== PRODUCTS ===== */
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:48px}
+.filter-btn{border:1px solid var(--line);background:transparent;padding:9px 22px;border-radius:40px;font-size:.83rem;font-weight:500;transition:.25s;color:var(--ink)}
+.filter-btn.active,.filter-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.product-card{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:.4s ease;position:relative}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 28px 48px -18px rgba(21,20,15,.16);border-color:transparent}
+.product-img-box{position:relative;height:250px;background:var(--stone);overflow:hidden}
+.product-img-box img{width:100%;height:100%;object-fit:cover;transition:.6s cubic-bezier(.4,0,.2,1)}
+.product-card:hover .product-img-box img{transform:scale(1.08)}
+.wish-btn{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.92);width:36px;height:36px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.1);z-index:3;transition:.25s}
+.wish-btn i{color:var(--ink);transition:.2s}
+.wish-btn.active i{color:#a33b2e}
+.wish-btn.active i::before{content:"\f415"}
+.quick-view-btn{position:absolute;bottom:-50px;left:14px;right:14px;background:var(--ink);color:#fff;border:none;padding:11px;font-size:.78rem;font-weight:600;border-radius:6px;transition:.35s cubic-bezier(.4,0,.2,1);opacity:0;letter-spacing:.02em}
+.product-card:hover .quick-view-btn{bottom:14px;opacity:1}
+.product-body{padding:19px 19px 21px}
+.product-cat{color:var(--umber);font-size:.7rem;font-weight:600;letter-spacing:.08em}
+.product-name{font-family:'Fraunces',serif;font-weight:500;font-size:1.08rem;margin:6px 0 7px}
+.product-stars{color:#c9922f;font-size:.76rem;margin-bottom:9px}
+.product-price{font-weight:700;font-size:1.05rem;font-family:'Fraunces',serif}
+.add-cart-btn{width:100%;background:var(--ink);color:#fff;border:none;padding:11px;border-radius:40px;font-weight:600;font-size:.82rem;margin-top:13px;transition:.25s}
+.add-cart-btn:hover{background:var(--umber)}
+.add-cart-btn.added{background:#3d6b45}
+
+/* ===== PROMO BANNER ===== */
+.promo-banner{background:var(--ink);color:#fff;border-radius:14px;padding:80px 50px;position:relative;overflow:hidden;background-image:linear-gradient(120deg,rgba(21,20,15,.93),rgba(21,20,15,.78)),url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=90');background-size:cover;background-position:center}
+.promo-banner h2{font-size:clamp(2.1rem,4.2vw,3.4rem);font-weight:600}
+
+/* ===== FEATURES ===== */
+.feature-card{text-align:center;padding:32px 18px}
+.feature-icon{width:76px;height:76px;border-radius:50%;background:var(--stone);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:1.7rem;color:var(--umber);transition:.35s}
+.feature-card:hover .feature-icon{background:var(--ink);color:#fff;transform:scale(1.06)}
+.feature-card h6{font-family:'Fraunces',serif;font-weight:600;font-size:1.02rem;margin-bottom:8px}
+
+/* ===== NEW ARRIVALS ===== */
+.arrival-card{position:relative;border-radius:10px;overflow:hidden;background:var(--stone);border:1px solid var(--line)}
+.arrival-card img{width:100%;height:320px;object-fit:cover;transition:.6s cubic-bezier(.4,0,.2,1)}
+.arrival-card:hover img{transform:scale(1.06)}
+.arrival-text{padding:24px}
+.arrival-text h5{font-family:'Fraunces',serif;font-weight:500;font-size:1.25rem}
+.discover-link{font-weight:600;font-size:.83rem;border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+
+/* ===== BRAND STORY ===== */
+.story-img{border-radius:10px;overflow:hidden;position:relative}
+.story-img img{width:100%;height:100%;object-fit:cover}
+.story-badge{position:absolute;bottom:24px;left:24px;background:#fff;padding:18px 24px;border-radius:8px;box-shadow:0 18px 40px rgba(21,20,15,.18)}
+.story-badge .num{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:600;color:var(--umber)}
+
+/* ===== NEWSLETTER ===== */
+.newsletter{background:var(--stone);border-radius:14px;padding:76px 40px;text-align:center;border:1px solid var(--line)}
+.newsletter input{border:1px solid var(--line);background:#fff;padding:15px 20px;border-radius:40px 0 0 40px;flex:1;font-size:.94rem}
+.newsletter input:focus{outline:none;box-shadow:none;border-color:var(--umber)}
+.newsletter button{border-radius:0 40px 40px 0;padding:15px 32px}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ink);color:#c9c2b4;padding:84px 0 26px}
+footer h6{color:#fff;font-weight:600;margin-bottom:24px;font-size:.9rem;letter-spacing:.03em}
+footer a{color:#9c9484;font-size:.87rem;display:block;margin-bottom:13px;transition:.2s}
+footer a:hover{color:var(--stone)}
+.social-icon{width:38px;height:38px;border-radius:50%;border:1px solid #33301F;display:flex;align-items:center;justify-content:center;color:#fff;transition:.25s}
+.social-icon:hover{background:var(--umber);border-color:var(--umber)}
+.footer-bottom{border-top:1px solid #2c2a1c;padding-top:26px;margin-top:54px;font-size:.79rem;color:#736b5b}
+
+/* ===== CART SIDEBAR ===== */
+.cart-overlay{position:fixed;inset:0;background:rgba(21,20,15,.5);z-index:2000;opacity:0;pointer-events:none;transition:.35s}
+.cart-overlay.show{opacity:1;pointer-events:auto}
+.cart-sidebar{position:fixed;top:0;right:-440px;width:420px;max-width:92vw;height:100%;background:#fff;z-index:2001;transition:.4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.cart-sidebar.show{right:0}
+.cart-head{padding:24px 26px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.cart-head h5{font-family:'Fraunces',serif;font-weight:500}
+.cart-body{flex:1;overflow-y:auto;padding:18px 26px}
+.cart-item{display:flex;gap:14px;padding:17px 0;border-bottom:1px solid var(--line)}
+.cart-item img{width:76px;height:76px;object-fit:cover;background:var(--stone);border-radius:8px}
+.qty-box{display:flex;align-items:center;border:1px solid var(--line);border-radius:20px;width:fit-content}
+.qty-box button{background:none;border:none;width:26px;height:26px;font-weight:700}
+.cart-foot{padding:24px 26px;border-top:1px solid var(--line)}
+.empty-cart{text-align:center;padding:60px 10px;color:var(--muted)}
+
+/* ===== SEARCH OVERLAY ===== */
+.search-overlay{position:fixed;inset:0;background:rgba(21,20,15,.97);z-index:2100;display:flex;align-items:flex-start;justify-content:center;opacity:0;pointer-events:none;transition:.35s}
+.search-overlay.show{opacity:1;pointer-events:auto}
+.search-overlay input{background:transparent;border:none;border-bottom:2px solid #4a4638;color:#fff;font-size:2rem;font-family:'Fraunces',serif;width:80%;max-width:700px;padding:14px 0;margin-top:14vh}
+.search-overlay input:focus{outline:none;border-color:var(--umber)}
+.search-overlay input::placeholder{color:#6b6656}
+.search-close{position:absolute;top:32px;right:42px;color:#fff;font-size:1.7rem;background:none;border:none}
+#searchResults{width:80%;max-width:700px;margin-top:22px;color:#ddd}
+#searchResults .sr-item{display:flex;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid #333;cursor:pointer}
+#searchResults .sr-item img{width:50px;height:50px;object-fit:cover;border-radius:6px}
+
+/* ===== QUICK VIEW MODAL ===== */
+.qv-img{background:var(--stone);border-radius:10px;height:340px;overflow:hidden}
+.qv-img img{width:100%;height:100%;object-fit:cover}
+
+/* ===== TOAST ===== */
+.toast-custom{position:fixed;bottom:30px;right:30px;background:var(--ink);color:#fff;padding:16px 24px;border-radius:10px;z-index:3000;display:flex;align-items:center;gap:12px;transform:translateY(140%);opacity:0;transition:.4s cubic-bezier(.4,0,.2,1);box-shadow:0 18px 44px rgba(0,0,0,.28)}
+.toast-custom.show{transform:translateY(0);opacity:1}
+.toast-custom i{color:#6fbf7a;font-size:1.15rem}
+
+@media(max-width:991px){
+  .nav-links{display:none}
+  .hero{padding-top:118px;text-align:center}
+  .hero-img-wrap{margin-top:54px}
+  .float-chip{display:none}
+  .section-pad{padding:64px 0}
+  .story-badge{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar-velora" id="mainNav">
+  <div class="container-xl d-flex align-items-center justify-content-between">
+    <a href="#home" class="brand-logo">Velora</a>
+
+    <div class="nav-links d-none d-lg-flex">
+      <a href="#home" class="active">Home</a>
+      <a href="#" onclick="filterAndScroll('Men')">Men</a>
+      <a href="#" onclick="filterAndScroll('Women')">Women</a>
+      <a href="#arrivals">New Arrivals</a>
+      <a href="#categories">Collections</a>
+      <a href="#story">About</a>
+      <a href="#footer">Contact</a>
+    </div>
+
+    <div class="d-flex align-items-center gap-1">
+      <button class="icon-btn" onclick="openSearch()" aria-label="Search"><i class="bi bi-search"></i></button>
+      <button class="icon-btn" onclick="toggleWishPanel()" aria-label="Wishlist">
+        <i class="bi bi-heart"></i><span class="badge-count" id="wishCount">0</span>
+      </button>
+      <button class="icon-btn" onclick="openCart()" aria-label="Cart">
+        <i class="bi bi-bag"></i><span class="badge-count" id="cartCount">0</span>
+      </button>
+      <button class="icon-btn d-lg-none" onclick="toggleMobileMenu()" aria-label="Menu"><i class="bi bi-list" style="font-size:1.6rem"></i></button>
+    </div>
+  </div>
+
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="d-lg-none" style="display:none;background:#fff;border-top:1px solid var(--line);margin-top:18px">
+    <div class="d-flex flex-column p-4 gap-3">
+      <a href="#home">Home</a>
+      <a href="#" onclick="filterAndScroll('Men')">Men</a>
+      <a href="#" onclick="filterAndScroll('Women')">Women</a>
+      <a href="#arrivals">New Arrivals</a>
+      <a href="#categories">Collections</a>
+      <a href="#story">About</a>
+      <a href="#footer">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container-xl">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="eyebrow">VELORA FOOTWEAR</div>
+        <h1>Step Into<br><em>Your Best</em></h1>
+        <p class="lead">Premium footwear designed for every move, every moment.</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="#products" class="btn-velora">Shop Collection</a>
+          <a href="#arrivals" class="btn-velora-outline">Explore New Arrivals</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-img-wrap">          <div class="hero-frame"></div>
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=90" alt="Velora premium shoe">
+          <div class="float-chip chip1"><i class="bi bi-stars"></i> New Season</div>
+          <div class="float-chip chip2"><i class="bi bi-cloud"></i> Premium Comfort</div>
+          <div class="float-chip chip3"><i class="bi bi-truck"></i> Free Shipping</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORY SECTION ============ -->
+<section class="section-pad" id="categories">
+  <div class="container-xl">
+    <div class="text-center reveal">
+      <div class="eyebrow">COLLECTIONS</div>
+      <h2 class="section-title">Find Your Perfect Pair</h2>
+      <p class="section-sub center">Curated collections built for how you move.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cat-card" onclick="filterAndScroll('Running')">
+          <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=90" alt="Running shoes">
+          <div class="cat-info"><h4>Running</h4><span class="cat-explore">Explore</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cat-card" onclick="filterAndScroll('Sneakers')">
+          <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&q=90" alt="Sneakers">
+          <div class="cat-info"><h4>Sneakers</h4><span class="cat-explore">Explore</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cat-card" onclick="filterAndScroll('Casual')">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=90" alt="Casual shoes">
+          <div class="cat-info"><h4>Casual</h4><span class="cat-explore">Explore</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="cat-card" onclick="filterAndScroll('Sports')">
+          <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=800&q=90" alt="Sports shoes">
+          <div class="cat-info"><h4>Sports</h4><span class="cat-explore">Explore</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED PRODUCTS ============ -->
+<section class="section-pad" style="background:var(--stone)" id="products">
+  <div class="container-xl">
+    <div class="text-center reveal">
+      <div class="eyebrow">SHOP THE EDIT</div>
+      <h2 class="section-title">Trending This Season</h2>
+      <p class="section-sub center">Hand-picked styles our community loves right now.</p>
+    </div>
+    <div class="filter-bar justify-content-center" id="filterBar">
+      <button class="filter-btn active" data-f="All">All</button>
+      <button class="filter-btn" data-f="Running">Running</button>
+      <button class="filter-btn" data-f="Sneakers">Sneakers</button>
+      <button class="filter-btn" data-f="Casual">Casual</button>
+      <button class="filter-btn" data-f="Sports">Sports</button>
+    </div>
+    <div class="row g-4" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ============ PROMO BANNER ============ -->
+<section class="section-pad">
+  <div class="container-xl">
+    <div class="promo-banner text-center reveal">
+      <p class="eyebrow" style="color:#D9CBB4">LIMITED TIME</p>
+      <h2 class="mb-3">Move More. Live More.</h2>
+      <p class="mb-4" style="color:#d8d3ca;max-width:520px;margin-inline:auto">Engineered for comfort. Designed for your lifestyle.</p>
+      <a href="#products" class="btn-velora" style="background:#fff;color:var(--ink);border-color:#fff">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY VELORA ============ -->
+<section class="section-pad">
+  <div class="container-xl">
+    <div class="text-center reveal">
+      <div class="eyebrow">WHY VELORA</div>
+      <h2 class="section-title">Built On The Details</h2>
+      <p class="section-sub center">The details that set every pair apart.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-3 col-6 reveal"><div class="feature-card"><div class="feature-icon"><i class="bi bi-gem"></i></div><h6>Premium Materials</h6><p class="text-muted small mb-0">Crafted from top-grade, sustainably sourced components.</p></div></div>
+      <div class="col-md-3 col-6 reveal"><div class="feature-card"><div class="feature-icon"><i class="bi bi-cloud-fill"></i></div><h6>All-Day Comfort</h6><p class="text-muted small mb-0">Cushioned support engineered for long days on your feet.</p></div></div>
+      <div class="col-md-3 col-6 reveal"><div class="feature-card"><div class="feature-icon"><i class="bi bi-truck"></i></div><h6>Fast & Free Shipping</h6><p class="text-muted small mb-0">Free delivery on every order, no minimum required.</p></div></div>
+      <div class="col-md-3 col-6 reveal"><div class="feature-card"><div class="feature-icon"><i class="bi bi-arrow-repeat"></i></div><h6>Easy Returns</h6><p class="text-muted small mb-0">30-day hassle-free returns, no questions asked.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEW ARRIVALS ============ -->
+<section class="section-pad" style="background:var(--stone)" id="arrivals">
+  <div class="container-xl">
+    <div class="text-center reveal">
+      <div class="eyebrow">JUST LANDED</div>
+      <h2 class="section-title">New Arrivals</h2>
+      <p class="section-sub center">Fresh off the line, straight into your rotation.</p>
+    </div>
+    <div class="row g-4" id="arrivalGrid"></div>
+  </div>
+</section>
+
+<!-- ============ BRAND STORY ============ -->
+<section class="section-pad" id="story">
+  <div class="container-xl">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <div class="story-img" style="height:460px">
+          <img src="https://images.unsplash.com/photo-1554133059-5e8b7f5b3a4d?auto=format&fit=crop&w=1000&q=90" alt="Velora brand story">
+          <div class="story-badge"><div class="num">12+</div><div class="small text-muted">Years of craft</div></div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="eyebrow">OUR STORY</div>
+        <h2 class="section-title">Made To Move With You</h2>
+        <p class="text-muted" style="font-size:1.05rem;max-width:480px;line-height:1.7">From morning runs to late-night city walks, Velora creates footwear that combines modern design, lasting comfort and everyday performance.</p>
+        <a href="#story" class="discover-link">Learn Our Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="section-pad">
+  <div class="container-xl">
+    <div class="newsletter reveal">
+      <div class="eyebrow">JOIN THE LIST</div>
+      <h2 class="section-title">Get 10% Off Your First Pair</h2>
+      <p class="section-sub center mb-4">Join the Velora community and receive new arrivals, exclusive offers and style updates.</p>
+      <form class="d-flex justify-content-center" style="max-width:460px;margin:0 auto" onsubmit="return subscribeNewsletter(event)">
+        <input type="email" id="newsEmail" placeholder="Enter your email" required>
+        <button type="submit" class="btn-velora">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="footer">
+  <div class="container-xl">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="brand-logo" style="color:#fff">Velora</div>
+        <p class="mt-3" style="max-width:280px;font-size:.88rem">Premium footwear designed for every move, every moment. Crafted for comfort, built to last.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Shop</h6>
+        <a href="#" onclick="filterAndScroll('Running')">Running</a>
+        <a href="#" onclick="filterAndScroll('Sneakers')">Sneakers</a>
+        <a href="#" onclick="filterAndScroll('Casual')">Casual</a>
+        <a href="#" onclick="filterAndScroll('Sports')">Sports</a>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Support</h6>
+        <a href="#">Shipping Info</a>
+        <a href="#">Returns</a>
+        <a href="#">Size Guide</a>
+        <a href="#">FAQs</a>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Company</h6>
+        <a href="#story">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Sustainability</a>
+        <a href="#">Press</a>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6>Contact</h6>
+        <a href="mailto:hello@velora.com">hello@velora.com</a>
+        <a href="tel:+10000000000">+1 (000) 000-0000</a>
+        <a href="#">Karachi, PK</a>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap justify-content-between">
+      <span>&copy; 2026 VELORA. All rights reserved.</span>
+      <span>Privacy Policy &nbsp;·&nbsp; Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CART SIDEBAR ============ -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head">
+    <h5 class="mb-0">Your Bag (<span id="cartItemCount">0</span>)</h5>
+    <button class="icon-btn" onclick="closeCart()"><i class="bi bi-x-lg"></i></button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-foot">
+    <div class="d-flex justify-content-between mb-3"><span>Subtotal</span><strong id="cartTotal">$0</strong></div>
+    <button class="btn-velora w-100" onclick="checkout()">Checkout</button>
+  </div>
+</div>
+
+<!-- ============ SEARCH OVERLAY ============ -->
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-close" onclick="closeSearch()"><i class="bi bi-x-lg"></i></button>
+  <div class="w-100 text-center">
+    <input type="text" id="searchInput" placeholder="Search for shoes..." oninput="runSearch()">
+    <div id="searchResults" class="text-start mx-auto"></div>
+  </div>
+</div>
+
+<!-- ============ QUICK VIEW MODAL ============ -->
+<div class="modal fade" id="quickViewModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content" style="border-radius:14px;border:none">
+      <div class="modal-body p-4" id="quickViewBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TOAST ============ -->
+<div class="toast-custom" id="toastBox"><i class="bi bi-check-circle-fill"></i><span id="toastMsg">Done</span></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ============ PRODUCT DATA ============ */
+const products = [
+ {id:1,name:"Velora AirFlex Runner",cat:"Running",price:89,rating:4.5,img:"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=90"},
+ {id:2,name:"Velora Urban X",cat:"Sneakers",price:99,rating:4.7,img:"https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=900&q=90"},
+ {id:3,name:"Velora Street Pro",cat:"Casual",price:109,rating:4.6,img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=90"},
+ {id:4,name:"Velora CloudStep",cat:"Running",price:119,rating:4.8,img:"https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=90"},
+ {id:5,name:"Velora Velocity",cat:"Sports",price:129,rating:4.4,img:"https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=900&q=90"},
+ {id:6,name:"Velora Motion One",cat:"Sports",price:95,rating:4.3,img:"https://images.unsplash.com/photo-1554133059-5e8b7f5b3a4d?auto=format&fit=crop&w=900&q=90"},
+ {id:7,name:"Velora Apex",cat:"Sneakers",price:139,rating:4.9,img:"https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=90"},
+ {id:8,name:"Velora Nova",cat:"Casual",price:115,rating:4.5,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=90"}
+];
+const arrivals = [
+ {id:9,name:"Velora Halo",cat:"New",price:149,img:"https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=90"},
+ {id:10,name:"Velora Drift",cat:"New",price:124,img:"https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=1000&q=90"},
+ {id:11,name:"Velora Ember",cat:"New",price:132,img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1000&q=90"}
+];
+
+let cart = JSON.parse(localStorage.getItem('velora_cart')||'[]');
+let wishlist = JSON.parse(localStorage.getItem('velora_wish')||'[]');
+let currentFilter = 'All';
+/* ============ RENDER PRODUCTS ============ */
+function starIcons(r){
+  let s='';
+  for(let i=1;i<=5;i++){ s += i<=Math.round(r) ? '<i class="bi bi-star-fill"></i> ' : '<i class="bi bi-star"></i> '; }
+  return s;
+}
+function renderProducts(){
+  const grid = document.getElementById('productGrid');
+  const list = currentFilter==='All' ? products : products.filter(p=>p.cat===currentFilter);
+  grid.innerHTML = list.map(p=>`
+    <div class="col-md-6 col-lg-3">
+      <div class="product-card reveal show">
+        <div class="product-img-box">
+          <button class="wish-btn ${wishlist.includes(p.id)?'active':''}" onclick="toggleWishlist(${p.id})"><i class="bi bi-heart"></i></button>
+          <img src="${p.img}" alt="${p.name}">
+          <button class="quick-view-btn" onclick="openQuickView(${p.id})">Quick View</button>
+        </div>
+        <div class="product-body">
+          <div class="product-cat">${p.cat.toUpperCase()}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-stars">${starIcons(p.rating)} <span class="text-muted">(${p.rating})</span></div>
+          <div class="product-price">$${p.price}</div>
+          <button class="add-cart-btn" onclick="addToCart(${p.id}, this)">Add to Cart</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function renderArrivals(){
+  document.getElementById('arrivalGrid').innerHTML = arrivals.map(a=>`
+    <div class="col-lg-4 reveal show">
+      <div class="arrival-card">
+        <img src="${a.img}" alt="${a.name}">
+        <div class="arrival-text">
+          <div class="product-cat">JUST DROPPED</div>
+          <h5 class="mt-1">${a.name}</h5>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <strong>$${a.price}</strong>
+            <a href="#" class="discover-link" onclick="openQuickView(${a.id});return false;">Discover</a>
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+/* ============ FILTER ============ */
+document.getElementById('filterBar').addEventListener('click', e=>{
+  if(!e.target.classList.contains('filter-btn')) return;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  currentFilter = e.target.dataset.f;
+  renderProducts();
+});
+function filterAndScroll(cat){
+  const btn = document.querySelector(`.filter-btn[data-f="${cat}"]`) || document.querySelector('.filter-btn[data-f="All"]');
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter = btn.dataset.f;
+  renderProducts();
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+  document.getElementById('mobileMenu').style.display='none';
+}
+
+/* ============ CART ============ */
+function saveCart(){ localStorage.setItem('velora_cart', JSON.stringify(cart)); updateCartUI(); }
+function addToCart(id, btn){
+  const p = [...products,...arrivals].find(x=>x.id===id);
+  const existing = cart.find(c=>c.id===id);
+  if(existing){ existing.qty++; } else { cart.push({...p, qty:1}); }
+  saveCart();
+  showToast(`${p.name} added to bag`);
+  if(btn){ btn.textContent='Added ✓'; btn.classList.add('added'); setTimeout(()=>{btn.textContent='Add to Cart';btn.classList.remove('added');},1200); }
+}
+function changeQty(id, delta){
+  const item = cart.find(c=>c.id===id);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty<=0) cart = cart.filter(c=>c.id!==id);
+  saveCart();
+}
+function removeFromCart(id){ cart = cart.filter(c=>c.id!==id); saveCart(); showToast('Item removed'); }
+function updateCartUI(){
+  const count = cart.reduce((s,c)=>s+c.qty,0);
+  document.getElementById('cartCount').textContent = count;
+  document.getElementById('cartItemCount').textContent = count;
+  const body = document.getElementById('cartBody');
+  if(cart.length===0){
+    body.innerHTML = `<div class="empty-cart"><i class="bi bi-bag-x" style="font-size:2.4rem"></i><p class="mt-3">Your bag is empty</p></div>`;
+  } else {
+    body.innerHTML = cart.map(c=>`
+      <div class="cart-item">
+        <img src="${c.img}" alt="${c.name}">
+        <div class="flex-grow-1">
+          <div class="d-flex justify-content-between"><strong style="font-size:.9rem">${c.name}</strong>
+            <button class="icon-btn p-0" style="font-size:.9rem" onclick="removeFromCart(${c.id})"><i class="bi bi-trash"></i></button>
+          </div>
+          <div class="text-muted small">${c.cat}</div>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <div class="qty-box">
+              <button onclick="changeQty(${c.id},-1)">−</button>
+              <span class="px-2">${c.qty}</span>
+              <button onclick="changeQty(${c.id},1)">+</button>
+            </div>
+            <strong>$${c.price*c.qty}</strong>
+          </div>
+        </div>
+      </div>`).join('');
+  }
+  const total = cart.reduce((s,c)=>s+c.price*c.qty,0);
+  document.getElementById('cartTotal').textContent = '$'+total;
+}
+function openCart(){ document.getElementById('cartSidebar').classList.add('show'); document.getElementById('cartOverlay').classList.add('show'); }
+function closeCart(){ document.getElementById('cartSidebar').classList.remove('show'); document.getElementById('cartOverlay').classList.remove('show'); }
+function checkout(){
+  if(cart.length===0){ showToast('Your bag is empty'); return; }
+  showToast('Order placed! Thank you for shopping with Velora');
+  cart = []; saveCart(); closeCart();
+}
+
+/* ============ WISHLIST ============ */
+function toggleWishlist(id){
+  if(wishlist.includes(id)) wishlist = wishlist.filter(w=>w!==id);
+  else { wishlist.push(id); showToast('Added to wishlist'); }
+  localStorage.setItem('velora_wish', JSON.stringify(wishlist));
+  document.getElementById('wishCount').textContent = wishlist.length;
+  renderProducts();
+}
+function toggleWishPanel(){
+  if(wishlist.length===0){ showToast('Your wishlist is empty'); return; }
+  const names = wishlist.map(id=>{ const p=[...products,...arrivals].find(x=>x.id===id); return p?p.name:''; }).join(', ');
+  showToast('Wishlist: '+names);
+}
+
+/* ============ QUICK VIEW ============ */
+function openQuickView(id){
+  const p = [...products,...arrivals].find(x=>x.id===id);
+  document.getElementById('quickViewBody').innerHTML = `
+    <div class="row g-4 align-items-center">
+      <div class="col-md-6"><div class="qv-img"><img src="${p.img}" alt="${p.name}"></div></div>
+      <div class="col-md-6">
+        <div class="product-cat">${(p.cat||'').toUpperCase()}</div>
+        <h3 class="mt-1">${p.name}</h3>
+        <div class="product-stars mb-2">${starIcons(p.rating||4.5)} <span class="text-muted">(${p.rating||4.5})</span></div>
+        <h4 class="mb-3">$${p.price}</h4>
+        <p class="text-muted">Premium comfort meets modern design. Breathable upper, cushioned sole, built for everyday performance.</p>
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn-velora" onclick="addToCart(${p.id});bootstrap.Modal.getInstance(document.getElementById('quickViewModal')).hide();">Add to Cart</button>
+          <button class="btn-velora-outline" onclick="toggleWishlist(${p.id})"><i class="bi bi-heart"></i> Wishlist</button>
+        </div>
+      </div>
+    </div>`;
+  new bootstrap.Modal(document.getElementById('quickViewModal')).show();
+}
+
+/* ============ SEARCH ============ */
+function openSearch(){ document.getElementById('searchOverlay').classList.add('show'); setTimeout(()=>document.getElementById('searchInput').focus(),300); }
+function closeSearch(){ document.getElementById('searchOverlay').classList.remove('show'); document.getElementById('searchInput').value=''; document.getElementById('searchResults').innerHTML=''; }
+function runSearch(){
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  const box = document.getElementById('searchResults');
+  if(!q){ box.innerHTML=''; return; }
+  const results = [...products,...arrivals].filter(p=>p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q));
+  box.innerHTML = results.length ? results.map(p=>`
+    <div class="sr-item" onclick="closeSearch();openQuickView(${p.id})">
+      <img src="${p.img}" alt="${p.name}">
+      <div><div>${p.name}</div><small class="text-muted">${p.cat} · $${p.price}</small></div>
+    </div>`).join('') : `<p class="text-muted mt-3">No products found for "${q}"</p>`;
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeSearch(); });
+
+/* ============ NEWSLETTER ============ */
+function subscribeNewsletter(e){
+  e.preventDefault();
+  const email = document.getElementById('newsEmail').value;
+  if(email){ showToast('Subscribed! 10% off code sent to your email'); document.getElementById('newsEmail').value=''; }
+  return false;
+}
+
+/* ============ TOAST ============ */
+let toastTimer;
+function showToast(msg){
+  const box = document.getElementById('toastBox');
+  document.getElementById('toastMsg').textContent = msg;
+  box.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>box.classList.remove('show'), 2800);
+}
+
+/* ============ MOBILE MENU ============ */
+function toggleMobileMenu(){
+  const m = document.getElementById('mobileMenu');
+  m.style.display = m.style.display==='none' ? 'block' : 'none';
+}
+
+/* ============ NAVBAR SCROLL EFFECT ============ */
+window.addEventListener('scroll', ()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY>40);
+});
+
+/* ============ SCROLL REVEAL ============ */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('show'); });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* ============ INIT ============ */
+renderProducts();
+renderArrivals();
+updateCartUI();
+document.getElementById('wishCount').textContent = wishlist.length;
+</script>
+</body>
+</html>
