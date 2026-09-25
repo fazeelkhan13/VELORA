@@ -247,7 +247,8 @@ footer a:hover{color:var(--stone)}
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="hero-img-wrap">          <div class="hero-frame"></div>
+        <div class="hero-img-wrap">
+          <div class="hero-frame"></div>
           <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=90" alt="Velora premium shoe">
           <div class="float-chip chip1"><i class="bi bi-stars"></i> New Season</div>
           <div class="float-chip chip2"><i class="bi bi-cloud"></i> Premium Comfort</div>
@@ -496,6 +497,7 @@ const arrivals = [
 let cart = JSON.parse(localStorage.getItem('velora_cart')||'[]');
 let wishlist = JSON.parse(localStorage.getItem('velora_wish')||'[]');
 let currentFilter = 'All';
+
 /* ============ RENDER PRODUCTS ============ */
 function starIcons(r){
   let s='';
